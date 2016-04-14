@@ -35,6 +35,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'byebug'
@@ -48,6 +49,13 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+group :test do
+  gem 'coveralls', require: false
+  gem 'database_cleaner'
+  gem 'poltergeist'
+end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
