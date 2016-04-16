@@ -1,11 +1,11 @@
 module Helpers
   def sign_in(user)
-    visit root_path
+    visit new_user_session_path
 
-    click_on "Sign In"
+    click_on "Log in"
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
 
-    click_on("log-in-button")
+    click_on("Log in")
   end
 end
