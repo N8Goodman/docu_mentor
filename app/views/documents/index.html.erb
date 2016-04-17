@@ -1,0 +1,11 @@
+<h1>Documents:</h1>
+
+<ul>
+  <% @documents.each do |document| %>
+    <li>
+      <%= link_to document.document_name, document_path(document) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a new Document", new_document_path %>

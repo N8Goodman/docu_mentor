@@ -12,5 +12,6 @@ feature "user sees a procedure's information" do
 
     expect(page).to have_content procedure1.procedure_name
     expect(page).to have_content procedure1.description
+    expect(page).to have_content "When completed: #{procedure1.completion_status}"
   end
 end

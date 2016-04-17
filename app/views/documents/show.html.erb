@@ -1,0 +1,7 @@
+<h1><%= @document.document_name %></h1>
+  <%= button_to "Update Document", edit_document_path(@document), method: :get %>
+  <%= button_to "Delete Document", document_path(@document), method: :delete %>
+  <br>
+  Description: <%= @document.description %>
+  <br>
+  When completed: <%= @document.completion_status %>

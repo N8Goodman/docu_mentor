@@ -7,6 +7,6 @@ FactoryGirl.define do
   factory :procedure do
     procedure_name
     description "A procedure for processing"
-    completion_status "Approved?"
+    completion_status "Approved"
   end
 end
