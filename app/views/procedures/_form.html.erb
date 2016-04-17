@@ -1,0 +1,19 @@
+<h1>Procedure:</h1>
+  <%= form_for @procedure do |f| %>
+
+  <div class="required-field">
+    <%= f.label :procedure_name, "Procedure Name" %>
+    <%= f.text_field :procedure_name %>
+  </div>
+
+  <div class="non-required-field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="required-field">
+    <%= f.label :completion_status, "Completion Title" %>
+    <%= f.text_field :completion_status %>
+  </div>
+  <%= f.submit "Submit Procedure" %>
+  <% end %>

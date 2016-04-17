@@ -1,0 +1,7 @@
+<h1><%= @stage.stage_name %></h1>
+  <%= button_to "Update Stage", edit_stage_path(@stage), method: :get %>
+  <%= button_to "Delete Stage", stage_path(@stage), method: :delete %>
+  <br>
+  Description: <%= @stage.description %>
+  <br>
+  When completed: <%= @stage.completion_status %>

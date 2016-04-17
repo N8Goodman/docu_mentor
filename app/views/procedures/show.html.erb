@@ -1,2 +1,7 @@
-<h1><%= @procedure.name %></h1>
+<h1><%= @procedure.procedure_name %></h1>
+  <%= button_to "Update Procedure", edit_procedure_path(@procedure), method: :get %>
+  <%= button_to "Delete Procedure", procedure_path(@procedure), method: :delete %>
+  <br>
   Description: <%= @procedure.description %>
+  <br>
+  When completed: <%= @procedure.completion_status %>

@@ -14,7 +14,7 @@ class ProceduresController < ApplicationController
   def create
     @procedure = Procedure.new(procedure_params)
     if @procedure.save
-      flash[:notice] = "procedure created!"
+      flash[:notice] = "Procedure created!"
       redirect_to procedure_path(@procedure)
     else
       flash[:error] = @procedure.errors.full_messages.join", "
@@ -30,7 +30,8 @@ class ProceduresController < ApplicationController
     @procedure = Procedure.find(params[:id])
     @procedure.update(procedure_params)
     if @procedure.save
-      flash[:notice] = "procedure updated!"
+      flash[:notice] = "Procedure updated!"
+      redirect_to procedure_path(@procedure)
     else
       flash[:error] = @procedure.errors.full_messages.join", "
       render 'edit'
@@ -38,18 +39,23 @@ class ProceduresController < ApplicationController
   end
 
   def destroy
+    @procedure = Procedure.find(params[:id])
+    if @procedure.destroy!
+      flash[:notice] = "#{@procedure.procedure_name} has been deleted!"
+      redirect_to procedures_path
+    else
+      flash[:error] = @procedure.errors.full_messages.join", "
+      redirect_to procedure_path(@procedure)
+    end
   end
 
   private
 
   def procedure_params
     params.require(:procedure).permit(
-    :name,
-    :description,
-    :completion_status
+      :procedure_name,
+      :description,
+      :completion_status
     )
-
   end
-
-
 end

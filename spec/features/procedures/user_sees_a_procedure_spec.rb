@@ -6,10 +6,11 @@ feature "user sees a procedure's information" do
   let!(:procedure3) { FactoryGirl.create(:procedure) }
 
   scenario 'view a procedure show page' do
-    visit '/'
+    visit '/procedures'
 
-    click_on procedure1.name
-    expect(page).to have_content procedure1.name
+    click_on procedure1.procedure_name
+
+    expect(page).to have_content procedure1.procedure_name
     expect(page).to have_content procedure1.description
   end
 end

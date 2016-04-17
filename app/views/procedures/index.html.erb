@@ -3,7 +3,9 @@
 <ul>
   <% @procedures.each do |procedure| %>
     <li>
-      <%= link_to procedure.name, procedure_path(procedure) %>
+      <%= link_to procedure.procedure_name, procedure_path(procedure) %>
     </li>
   <% end %>
 </ul>
+
+<%= link_to "Add a new Procedure", new_procedure_path %>
