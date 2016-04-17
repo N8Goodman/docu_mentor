@@ -8,9 +8,9 @@ feature 'user sees a list of procedures' do
   scenario 'see a list of procedures' do
     visit 'procedures'
 
-    expect(page).to have_content procedure1.name
-    expect(page).to have_content procedure2.name
-    expect(page).to have_content procedure3.name
+    expect(page).to have_content procedure1.procedure_name
+    expect(page).to have_content procedure2.procedure_name
+    expect(page).to have_content procedure3.procedure_name
 
   end
 end

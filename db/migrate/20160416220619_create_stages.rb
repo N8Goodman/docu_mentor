@@ -1,7 +1,7 @@
-class CreateProcedures < ActiveRecord::Migration[5.0]
+class CreateStages < ActiveRecord::Migration[5.0]
   def change
-    create_table :procedures do |t|
-      t.string :procedure_name, null: false
+    create_table :stages do |t|
+      t.string :stage_name, null: false
       t.text :description
       t.string :completion_status, null: false
 
