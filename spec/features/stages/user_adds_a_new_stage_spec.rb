@@ -19,12 +19,12 @@ feature "user adds a new stage " do
 
     fill_in "Stage Name", with: "Initial Application"
     fill_in "Description", with: "The first stage of the process"
-    fill_in "Completion Title", with: "Accepted"
+    fill_in "Completion Title", with: "Approved"
     click_on "Submit Stage"
 
     expect(page).to have_content "Stage created!"
     expect(page).to have_content "Initial Application"
-    expect(page).to have_content "When completed: Accepted"
+    expect(page).to have_content "When completed: Approved"
     expect(page).to have_content "Description: The first stage of the process"
   end
 
@@ -32,23 +32,23 @@ feature "user adds a new stage " do
     visit new_stage_path
 
     fill_in "Stage Name", with: "Initial Application"
-    fill_in "Completion Title", with: "Accepted"
+    fill_in "Completion Title", with: "Approved"
     click_on "Submit Stage"
 
     expect(page).to have_content "Stage created!"
     expect(page).to have_content "Initial Application"
-    expect(page).to have_content "When completed: Accepted"
+    expect(page).to have_content "When completed: Approved"
   end
 
   scenario 'user tries to add a stage without a name' do
     visit new_stage_path
 
     fill_in "Description", with: "The first stage of the process"
-    fill_in "Completion Title", with: "Accepted"
+    fill_in "Completion Title", with: "Approved"
     click_on "Submit Stage"
 
     expect(page).to have_content "Stage name can't be blank"
-    expect(page).to_not have_content "When completed: Accepted"
+    expect(page).to_not have_content "When completed: Approved"
     expect(page).to_not have_content "Description: The first stage of the processr"
   end
 

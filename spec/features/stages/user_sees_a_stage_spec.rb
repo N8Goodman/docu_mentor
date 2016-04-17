@@ -11,5 +11,6 @@ feature "user sees a stage's information" do
     click_on stage1.stage_name
     expect(page).to have_content stage1.stage_name
     expect(page).to have_content stage1.description
+    expect(page).to have_content "When completed: #{stage1.completion_status}"
   end
 end

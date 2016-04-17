@@ -7,6 +7,6 @@ FactoryGirl.define do
   factory :stage do
     stage_name
     description "A stage of a procedure"
-    completion_status "Approved?"
+    completion_status "Approved"
   end
 end
