@@ -6,6 +6,7 @@ feature "user edits a procedure " do
     visit '/procedures'
 
     click_on procedure1.procedure_name
+
     click_on "Update Procedure"
 
     expect(page).to have_content "Update #{procedure1.procedure_name}"
@@ -106,6 +107,7 @@ feature "user edits a procedure " do
     visit '/procedures'
 
     click_on procedure1.procedure_name
+
     click_on "Update Procedure"
 
     click_on "Submit Procedure"

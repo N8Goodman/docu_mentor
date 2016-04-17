@@ -9,6 +9,7 @@ feature "user sees a procedure's information" do
     visit '/procedures'
 
     click_on procedure1.procedure_name
+
     expect(page).to have_content procedure1.procedure_name
     expect(page).to have_content procedure1.description
   end

@@ -6,6 +6,7 @@ feature "user adds a new stage " do
     visit '/stages'
 
     click_on "Add a new Stage"
+
     expect(page).to have_content "Stage Name"
     expect(page).to have_content "Description"
     expect(page).to have_content "Completion Title"

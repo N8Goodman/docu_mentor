@@ -7,6 +7,7 @@ feature "user edits a new stage " do
     visit '/stages'
 
     click_on stage1.stage_name
+
     click_on "Update Stage"
 
     expect(page).to have_content "Stage Name"
@@ -19,6 +20,7 @@ feature "user edits a new stage " do
     visit '/stages'
 
     click_on stage1.stage_name
+
     click_on "Update Stage"
 
     fill_in "Stage Name", with: "Initial Application"
@@ -36,6 +38,7 @@ feature "user edits a new stage " do
     visit '/stages'
 
     click_on stage1.stage_name
+
     click_on "Update Stage"
 
     fill_in "Stage Name", with: "Initial Application"
@@ -53,6 +56,7 @@ feature "user edits a new stage " do
     visit '/stages'
 
     click_on stage1.stage_name
+
     click_on "Update Stage"
 
     fill_in "Stage Name", with: ""
@@ -70,8 +74,8 @@ feature "user edits a new stage " do
     visit '/stages'
 
     click_on stage1.stage_name
-    click_on "Update Stage"
 
+    click_on "Update Stage"
 
     fill_in "Stage Name", with: "Initial Application"
     fill_in "Description", with: "The first stage of the process"
@@ -87,8 +91,8 @@ feature "user edits a new stage " do
     visit '/stages'
 
     click_on stage1.stage_name
-    click_on "Update Stage"
 
+    click_on "Update Stage"
 
     fill_in "Stage Name", with: ""
     fill_in "Description", with: ""
@@ -104,6 +108,7 @@ feature "user edits a new stage " do
     visit '/stages'
 
     click_on stage1.stage_name
+
     click_on "Update Stage"
 
     click_on "Submit Stage"

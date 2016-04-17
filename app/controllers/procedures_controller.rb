@@ -53,12 +53,9 @@ class ProceduresController < ApplicationController
 
   def procedure_params
     params.require(:procedure).permit(
-    :procedure_name,
-    :description,
-    :completion_status
+      :procedure_name,
+      :description,
+      :completion_status
     )
-
   end
-
-
 end

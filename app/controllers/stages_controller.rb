@@ -53,10 +53,9 @@ class StagesController < ApplicationController
 
   def stage_params
     params.require(:stage).permit(
-    :stage_name,
-    :description,
-    :completion_status
+      :stage_name,
+      :description,
+      :completion_status
     )
-
   end
 end
