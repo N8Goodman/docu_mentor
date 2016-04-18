@@ -5,3 +5,14 @@
   Description: <%= @stage.description %>
   <br>
   When completed: <%= @stage.completion_status %>
+  <br>
+  Documents:
+  <%= render '/materials/form' %>
+  <br>
+  <div class="document-list">
+    <% @documents.each do |document| %>
+      <div class="document-box">
+        <%= document.document_name %>
+      </div>
+    <% end %>
+  </div>

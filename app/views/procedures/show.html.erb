@@ -5,3 +5,21 @@
   Description: <%= @procedure.description %>
   <br>
   When completed: <%= @procedure.completion_status %>
+  <br>
+  Stages:
+  <%= render '/levels/form' %>
+  <br>
+  <div class="stage-list">
+    <% @stages.each do |stage| %>
+      <div class="stage-box">
+        <%= stage.stage_name %>
+          <div class="document-list">
+            <% stage.documents.each do |document| %>
+              <div class="document-box">
+                <%= document.document_name %>
+              </div>
+            <% end %>
+          </div>
+      </div>
+    <% end %>
+  </div>

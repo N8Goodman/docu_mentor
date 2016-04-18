@@ -4,7 +4,10 @@ class ProceduresController < ApplicationController
   end
 
   def show
+    @level = Level.new
+    @stage_selects = Stage.all
     @procedure = Procedure.find(params[:id])
+    @stages = @procedure.stages
   end
 
   def new

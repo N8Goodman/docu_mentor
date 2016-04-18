@@ -1,6 +1,6 @@
 class Document < ActiveRecord::Base
-  has_many :occurences
-  has_many :stages, through: :occurences
+  has_many :materials
+  has_many :stages, through: :materials
   has_many :uploads
 
   validates :document_name, presence: true, uniqueness: true
