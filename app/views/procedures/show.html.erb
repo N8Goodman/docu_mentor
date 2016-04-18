@@ -12,14 +12,14 @@
   <div class="stage-list">
     <% @stages.each do |stage| %>
       <div class="stage-box">
-        <%= stage.stage_name %>
-          <div class="document-list">
-            <% stage.documents.each do |document| %>
+        <%= link_to stage.stage_name, stage_path(stage) %>
+          <% stage.documents.each do |document| %>
+            <div class="document-list">
               <div class="document-box">
-                <%= document.document_name %>
+                <%= link_to document.document_name, document_path(document) %>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
       </div>
     <% end %>
   </div>

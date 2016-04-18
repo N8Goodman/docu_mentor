@@ -4,7 +4,7 @@ class MaterialsController < ApplicationController
     @material = Material.new(material_params)
     @material.stage = @stage
     if @material.save
-      flash[:notice] = "Stage Added!"
+      flash[:notice] = "Document Added!"
     else
       flash[:error] = @material.errors.full_messages.join", "
     end

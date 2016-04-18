@@ -8,8 +8,4 @@ class Material < ActiveRecord::Base
     scope: :document,
     message: "already contains document!"
   }
-  validates :document, uniqueness: {
-    scope: :stage,
-    message: " is already included!"
-  }
 end

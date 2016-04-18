@@ -4,10 +4,6 @@ class Level < ActiveRecord::Base
 
   validates :procedure, presence: true
   validates :stage, presence: true
-  validates :stage, uniqueness: {
-    scope: :procedure,
-    message: " is already included!"
-  }
   validates :procedure, uniqueness: {
     scope: :stage,
     message: "already contains stage!"

@@ -5,3 +5,15 @@
   Description: <%= @document.description %>
   <br>
   When completed: <%= @document.completion_status %>
+
+  <h3>Stages:</h3>
+  <p>
+    This document is used in the following stages:
+  </p>
+  <ul>
+    <% @document.stages.each do |stage| %>
+      <li>
+        <%= link_to stage.stage_name, stage_path(stage) %>
+      </li>
+    <% end %>
+  </ul>

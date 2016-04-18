@@ -10,9 +10,21 @@
   <%= render '/materials/form' %>
   <br>
   <div class="document-list">
-    <% @documents.each do |document| %>
+    <% @stage.documents.each do |document| %>
       <div class="document-box">
-        <%= document.document_name %>
+        <%= link_to document.document_name, document_path(document) %>
       </div>
     <% end %>
   </div>
+
+  <h3>Procedures:</h3>
+  <p>
+    This stage is used in the following procedures:
+  </p>
+  <ul>
+    <% @stage.procedures.each do |procedure| %>
+      <li>
+        <%= link_to procedure.procedure_name, procedure_path(procedure) %>
+      </li>
+    <% end %>
+  </ul>
