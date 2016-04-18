@@ -1,0 +1,9 @@
+<h4>Add a stage:</h4>
+
+  <%= form_for [@procedure, @level] do |f| %>
+
+    <%= f.label :stage_id %>
+    <%= f.collection_select(:stage_id, @stage_selects, :id, :stage_name) %>
+
+    <%= f.submit "Add Stage" %>
+  <% end %>

@@ -5,3 +5,26 @@
   Description: <%= @stage.description %>
   <br>
   When completed: <%= @stage.completion_status %>
+  <br>
+  Documents:
+  <%= render '/materials/form' %>
+  <br>
+  <div class="document-list">
+    <% @stage.documents.each do |document| %>
+      <div class="document-box">
+        <%= link_to document.document_name, document_path(document) %>
+      </div>
+    <% end %>
+  </div>
+
+  <h3>Procedures:</h3>
+  <p>
+    This stage is used in the following procedures:
+  </p>
+  <ul>
+    <% @stage.procedures.each do |procedure| %>
+      <li>
+        <%= link_to procedure.procedure_name, procedure_path(procedure) %>
+      </li>
+    <% end %>
+  </ul>

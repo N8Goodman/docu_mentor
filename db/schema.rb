@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417193637) do
+ActiveRecord::Schema.define(version: 20160417211358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,28 @@ ActiveRecord::Schema.define(version: 20160417193637) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  create_table "levels", force: :cascade do |t|
+    t.integer  "procedure_id", null: false
+    t.integer  "stage_id",     null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "levels", ["procedure_id", "stage_id"], name: "index_levels_on_procedure_id_and_stage_id", unique: true, using: :btree
+  add_index "levels", ["procedure_id"], name: "index_levels_on_procedure_id", using: :btree
+  add_index "levels", ["stage_id"], name: "index_levels_on_stage_id", using: :btree
+
+  create_table "materials", force: :cascade do |t|
+    t.integer  "stage_id",    null: false
+    t.integer  "document_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "materials", ["document_id"], name: "index_materials_on_document_id", using: :btree
+  add_index "materials", ["stage_id", "document_id"], name: "index_materials_on_stage_id_and_document_id", unique: true, using: :btree
+  add_index "materials", ["stage_id"], name: "index_materials_on_stage_id", using: :btree
 
   create_table "procedures", force: :cascade do |t|
     t.string   "procedure_name",    null: false

@@ -4,7 +4,10 @@ class StagesController < ApplicationController
   end
 
   def show
+    @material = Material.new
+    @document_selects = Document.all
     @stage = Stage.find(params[:id])
+    @documents = @stage.documents
   end
 
   def new

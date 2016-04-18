@@ -1,0 +1,8 @@
+  <%= stage.stage_name %>
+<div class="document-list">
+  <% stage.documents.each do |document| %>
+    <div class="document-box">
+      <%= document.document_name %>
+    </div>
+  <% end %>
+</div>
