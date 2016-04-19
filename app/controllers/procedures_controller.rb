@@ -1,4 +1,4 @@
-class ProceduresController < ApplicationController
+class ProceduresController < AdminController
   def index
     @procedures = Procedure.all
   end

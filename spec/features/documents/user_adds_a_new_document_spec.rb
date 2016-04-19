@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 feature "user adds a new document " do
+  let!(:admin1) { FactoryGirl.create(:user, admin: true) }
 
   scenario 'user successfully navigates to add document form' do
+    sign_in(admin1)
     visit '/documents'
 
     click_on "Add a new Document"
@@ -15,6 +17,7 @@ feature "user adds a new document " do
   end
 
   scenario 'user successfully adds a document with a description' do
+    sign_in(admin1)
     visit new_document_path
 
     fill_in "Document Name", with: "Invoice"
@@ -29,6 +32,7 @@ feature "user adds a new document " do
   end
 
   scenario 'user successfully adds a document without a description' do
+    sign_in(admin1)
     visit new_document_path
 
     fill_in "Document Name", with: "Invoice"
@@ -41,6 +45,7 @@ feature "user adds a new document " do
   end
 
   scenario 'user tries to add a document without a name' do
+    sign_in(admin1)
     visit new_document_path
 
     fill_in "Description", with: "An list of items for purchase"
@@ -53,6 +58,7 @@ feature "user adds a new document " do
   end
 
   scenario 'user tries to add a document without a completion title' do
+    sign_in(admin1)
     visit new_document_path
 
     fill_in "Document Name", with: "Invoice"

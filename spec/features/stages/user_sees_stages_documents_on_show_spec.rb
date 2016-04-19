@@ -9,8 +9,10 @@ feature "user sees a stage's documents" do
   let!(:document4) { FactoryGirl.create(:document) }
   let!(:material1) { Material.create(stage: stage1, document: document1) }
   let!(:material2) { Material.create(stage: stage1, document: document2) }
+  let!(:admin1) { FactoryGirl.create(:user, admin: true) }
 
   scenario "the documentss of a stage are displayed on the show page" do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
@@ -20,6 +22,7 @@ feature "user sees a stage's documents" do
   end
 
   scenario "multiple documents can be added to a stage" do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
@@ -34,6 +37,7 @@ feature "user sees a stage's documents" do
   end
 
   scenario "a document cannot be added to a stage more than once" do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name

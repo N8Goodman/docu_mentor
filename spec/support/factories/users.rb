@@ -11,6 +11,6 @@ FactoryGirl.define do
     user_name
     email
     password "password"
-    admin "false"
+    admin false
   end
 end

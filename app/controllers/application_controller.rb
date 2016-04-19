@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
       :user_name,
       :email,
       :password,
-      :password_confirmation      )
+      :password_confirmation,
+      :admin      )
     end
 
     devise_parameter_sanitizer.permit(:account_update) do
@@ -22,7 +23,8 @@ class ApplicationController < ActionController::Base
        :email,
        :password,
        :password_confirmation,
-       :current_password
+       :current_password,
+       :admin
        )
     end
   end

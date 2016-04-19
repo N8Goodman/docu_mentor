@@ -1,0 +1,16 @@
+<h1>Applications:</h1>
+
+<h3>Your Applications:</h3>
+<% if current_user && !current_user.apps.empty?%>
+  <ul>
+    <% current_user.apps.each do |app| %>
+      <li>
+        app.procedure.procedure_name
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  Start an application:
+<% end %>
+<br>
+<%= render 'form' %>

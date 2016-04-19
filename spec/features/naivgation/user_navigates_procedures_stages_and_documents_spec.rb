@@ -15,8 +15,10 @@ feature "user navigates between procedures, stages, and documents" do
   let!(:material5) { Material.create(stage: stage2, document: document1) }
   let!(:level2) { Level.create(procedure: procedure1, stage: stage2) }
   let!(:level1) { Level.create(procedure: procedure1, stage: stage1) }
+  let!(:admin1) { FactoryGirl.create(:user, admin: true) }
 
   scenario "on a procedure's show page, there are links to each stage's show page" do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
@@ -26,6 +28,7 @@ feature "user navigates between procedures, stages, and documents" do
   end
 
   scenario "on a procedure's show page, the user can click on the stage's names to view the stage's show page" do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
@@ -38,6 +41,7 @@ feature "user navigates between procedures, stages, and documents" do
   end
 
   scenario "on a stage's show page, there are links to each document's show page" do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
@@ -47,6 +51,7 @@ feature "user navigates between procedures, stages, and documents" do
   end
 
   scenario "on a stage's show page, the user can click on the document's names to view the document's show page" do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
@@ -59,6 +64,7 @@ feature "user navigates between procedures, stages, and documents" do
   end
 
   scenario "on a stage's show page, there are links to the procedures it is contained in" do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
@@ -67,6 +73,7 @@ feature "user navigates between procedures, stages, and documents" do
   end
 
   scenario "on a stage's show page, the user can click on the procedure's names to view the procedure's show page" do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
@@ -79,6 +86,7 @@ feature "user navigates between procedures, stages, and documents" do
   end
 
   scenario "on a document's show page, there are links to the stages it is contained in" do
+    sign_in(admin1)
     visit '/documents'
 
     click_on document1.document_name
@@ -88,6 +96,7 @@ feature "user navigates between procedures, stages, and documents" do
   end
 
   scenario "on a document's show page, the user can click on the stage's names to view the stage's show page" do
+    sign_in(admin1)
     visit '/documents'
 
     click_on document1.document_name

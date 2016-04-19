@@ -19,14 +19,14 @@
         <% end %>
       <% end %>
     </div>
+    <%= link_to "Home", root_path %>
     <%= link_to "Sign up", new_user_registration_path if !current_user %>
     <%= link_to "Sign in", new_user_session_path if !current_user%>
     <%= link_to "Update Profile", edit_user_registration_path if current_user%>
     <%= link_to "Sign out", destroy_user_session_path, method: :delete if current_user%>
-    <%= link_to "Home", root_path %>
-    <%= link_to "Procedures", procedures_path %>
-    <%= link_to "Stages", stages_path %>
-    <%= link_to "Documents", documents_path %>
+    <%= link_to "Procedures", procedures_path if current_user && current_user.admin %>
+    <%= link_to "Stages", stages_path if current_user && current_user.admin %>
+    <%= link_to "Documents", documents_path if current_user && current_user.admin %>
     <%= yield %>
 
   </body>

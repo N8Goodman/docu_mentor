@@ -4,8 +4,10 @@ feature "user deletes a stage " do
   let!(:stage1) { FactoryGirl.create(:stage) }
   let!(:stage2) { FactoryGirl.create(:stage) }
   let!(:stage3) { FactoryGirl.create(:stage) }
+  let!(:admin1) { FactoryGirl.create(:user, admin: true) }
 
   scenario 'user navigates to deletes stage' do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
