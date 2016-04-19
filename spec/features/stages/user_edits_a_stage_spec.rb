@@ -2,8 +2,10 @@ require 'rails_helper'
 
 feature "user edits a new stage " do
   let!(:stage1) { FactoryGirl.create(:stage) }
+  let!(:admin1) { FactoryGirl.create(:user, admin: true) }
 
   scenario 'user successfully navigates to edit stage form' do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
@@ -17,6 +19,7 @@ feature "user edits a new stage " do
   end
 
   scenario 'user successfully edits a stage with a description' do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
@@ -35,6 +38,7 @@ feature "user edits a new stage " do
   end
 
   scenario 'user successfully edits a stage without a description' do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
@@ -53,6 +57,7 @@ feature "user edits a new stage " do
   end
 
   scenario 'user tries to edit a stage without a name' do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
@@ -71,6 +76,7 @@ feature "user edits a new stage " do
   end
 
   scenario 'user tries to edit a stage without a completion title' do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
@@ -88,6 +94,7 @@ feature "user edits a new stage " do
   end
 
   scenario 'user tries to edit a stage without any fields' do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
@@ -105,6 +112,7 @@ feature "user edits a new stage " do
   end
 
   scenario 'user tries to edit a stage without making changes' do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name

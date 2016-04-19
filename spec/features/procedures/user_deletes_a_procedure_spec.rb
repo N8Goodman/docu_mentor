@@ -4,8 +4,10 @@ feature "user deletes a procedure " do
   let!(:procedure1) { FactoryGirl.create(:procedure) }
   let!(:procedure2) { FactoryGirl.create(:procedure) }
   let!(:procedure3) { FactoryGirl.create(:procedure) }
+  let!(:admin1) { FactoryGirl.create(:user, admin: true) }
 
   scenario 'user navigates to deletes procedure' do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name

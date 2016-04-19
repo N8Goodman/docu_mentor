@@ -2,7 +2,10 @@ require 'rails_helper'
 
 feature "user edits a procedure " do
   let!(:procedure1) { FactoryGirl.create(:procedure) }
+  let!(:admin1) { FactoryGirl.create(:user, admin: true) }
+
   scenario 'user navigates to edit form' do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
@@ -17,6 +20,7 @@ feature "user edits a procedure " do
   end
 
   scenario 'user successfully edits a procedure with a description' do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
@@ -35,6 +39,7 @@ feature "user edits a procedure " do
   end
 
   scenario 'user successfully edits a procedure without a description' do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
@@ -53,6 +58,7 @@ feature "user edits a procedure " do
   end
 
   scenario 'user tries to edit a procedure without a name' do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
@@ -70,6 +76,7 @@ feature "user edits a procedure " do
   end
 
   scenario 'user tries to edit a procedure without a completion title' do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
@@ -86,6 +93,7 @@ feature "user edits a procedure " do
   end
 
   scenario 'user tries to edit a procedure without any fields completed' do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
@@ -104,6 +112,7 @@ feature "user edits a procedure " do
   end
 
   scenario 'user tries to edit a procedure without making changes' do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name

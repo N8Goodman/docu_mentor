@@ -1,4 +1,4 @@
-class LevelsController < ApplicationController
+class LevelsController < AdminController
   def create
     @procedure = Procedure.find(params[:procedure_id])
     @level = Level.new(level_params)

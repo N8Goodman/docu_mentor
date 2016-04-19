@@ -6,8 +6,10 @@ feature "user sees a stage's information" do
   let!(:procedure2) { FactoryGirl.create(:procedure) }
   let!(:level1) { Level.create(procedure: procedure1, stage: stage1) }
   let!(:level2) { Level.create(procedure: procedure2, stage: stage1) }
+  let!(:admin1) { FactoryGirl.create(:user, admin: true) }
 
   scenario 'view a stage show page' do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name
@@ -17,6 +19,7 @@ feature "user sees a stage's information" do
   end
 
   scenario 'sees list of procedures that stage is used in' do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage1.stage_name

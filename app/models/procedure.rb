@@ -1,5 +1,5 @@
 class Procedure < ActiveRecord::Base
-  has_many :applications
+  has_many :apps
   has_many :levels
   has_many :stages, through: :levels
   has_many :users, through: :applications

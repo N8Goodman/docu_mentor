@@ -1,4 +1,4 @@
-class DocumentsController < ApplicationController
+class DocumentsController < AdminController
   def index
     @documents = Document.all
   end

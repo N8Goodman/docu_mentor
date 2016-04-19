@@ -1,4 +1,4 @@
-class StagesController < ApplicationController
+class StagesController < AdminController
   def index
     @stages = Stage.all
   end

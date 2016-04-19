@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 feature "user adds a new stage " do
-
+  let!(:admin1) { FactoryGirl.create(:user, admin: true) }
   scenario 'user successfully navigates to add stage form' do
+    sign_in(admin1)
     visit '/stages'
 
     click_on "Add a new Stage"
@@ -15,6 +16,7 @@ feature "user adds a new stage " do
   end
 
   scenario 'user successfully adds a stage with a description' do
+    sign_in(admin1)
     visit new_stage_path
 
     fill_in "Stage Name", with: "Initial Application"
@@ -29,6 +31,7 @@ feature "user adds a new stage " do
   end
 
   scenario 'user successfully adds a stage without a description' do
+    sign_in(admin1)
     visit new_stage_path
 
     fill_in "Stage Name", with: "Initial Application"
@@ -41,6 +44,7 @@ feature "user adds a new stage " do
   end
 
   scenario 'user tries to add a stage without a name' do
+    sign_in(admin1)
     visit new_stage_path
 
     fill_in "Description", with: "The first stage of the process"
@@ -53,6 +57,7 @@ feature "user adds a new stage " do
   end
 
   scenario 'user tries to add a stage without a completion title' do
+    sign_in(admin1)
     visit new_stage_path
 
     fill_in "Stage Name", with: "Initial Application"

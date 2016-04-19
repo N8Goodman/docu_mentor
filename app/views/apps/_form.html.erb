@@ -1,0 +1,8 @@
+<h2>Start an Application:</h2>
+  <%= form_for @app do |f| %>
+
+    <%= f.label :procedure_id %>
+    <%= f.collection_select(:procedure_id, @procedure_selects, :id, :procedure_name) %>
+
+    <%= f.submit "Start Application" %>
+  <% end %>

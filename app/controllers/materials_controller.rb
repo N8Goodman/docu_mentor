@@ -1,4 +1,4 @@
-class MaterialsController < ApplicationController
+class MaterialsController < AdminController
   def create
     @stage = Stage.find(params[:stage_id])
     @material = Material.new(material_params)

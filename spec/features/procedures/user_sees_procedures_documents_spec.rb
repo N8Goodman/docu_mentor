@@ -13,8 +13,10 @@ feature "user sees a procedure's stages and documents" do
   let!(:material3) { Material.create(stage: stage2, document: document3) }
   let!(:material4) { Material.create(stage: stage2, document: document4) }
   let!(:level2) { Level.create(procedure: procedure1, stage: stage2) }
+  let!(:admin1) { FactoryGirl.create(:user, admin: true) }
 
   scenario "the stages of a procedure are displayed on the show page" do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
@@ -23,6 +25,7 @@ feature "user sees a procedure's stages and documents" do
   end
 
   scenario "the documents of each stage of a procedure are displayed on the show page" do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
@@ -32,6 +35,7 @@ feature "user sees a procedure's stages and documents" do
   end
 
   scenario "when a new document is added to a stage, it will appear on any procedures where that stage is included" do
+    sign_in(admin1)
     visit '/stages'
 
     click_on stage2.stage_name
@@ -46,6 +50,7 @@ feature "user sees a procedure's stages and documents" do
   end
 
   scenario "multiple stages can be added to a procedure" do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
@@ -59,6 +64,7 @@ feature "user sees a procedure's stages and documents" do
   end
 
   scenario "when a stage is added, the documents of that stage are also displayed" do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
@@ -74,6 +80,7 @@ feature "user sees a procedure's stages and documents" do
     expect(page).to have_content document4.document_name
   end
   scenario "a stage cannot be added to a procedure more than once" do
+    sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
