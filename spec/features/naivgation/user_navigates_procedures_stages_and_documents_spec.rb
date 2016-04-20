@@ -13,8 +13,8 @@ feature "user navigates between procedures, stages, and documents" do
   let!(:material3) { Material.create(stage: stage2, document: document3) }
   let!(:material4) { Material.create(stage: stage2, document: document4) }
   let!(:material5) { Material.create(stage: stage2, document: document1) }
-  let!(:level2) { Level.create(procedure: procedure1, stage: stage2) }
-  let!(:level1) { Level.create(procedure: procedure1, stage: stage1) }
+  let!(:level2) { Level.create(procedure: procedure1, stage: stage2, order: 1) }
+  let!(:level1) { Level.create(procedure: procedure1, stage: stage1, order: 2) }
   let!(:admin1) { FactoryGirl.create(:user, admin: true) }
 
   scenario "on a procedure's show page, there are links to each stage's show page" do

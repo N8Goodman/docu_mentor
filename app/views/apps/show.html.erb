@@ -1,2 +1,43 @@
 <h1><%= @app.procedure.procedure_name %></h1>
+<% if @app.completed %>
+  (<%= @app.procedure.completion_status %>)
+<% end %>
 <h3>For: <%= @app.user.user_name %></h3>
+
+<% @app.steps.each do |step| %>
+  <%= step.order %>. <%= step.stage.stage_name %>
+  <% if step.accepted? %>
+    (<%= step.stage.completion_status %>)
+  <% end %>
+  <br>
+    <% step.uploads.each do |upload| %>
+      <% if step.order == @app.active_stage %>
+        <%= form_for [@app, upload] do |f| %>
+          <%= upload.id %>
+          <% if f.object.document_file? %>
+            <%= image_tag f.object.document_file.thumb.url %>
+          <% end %>
+          <%= f.label :document_file, "#{upload.document.document_name}" %>
+          <%= f.file_field :document_file %>
+
+          <%= f.submit "Upload File" %>
+        <% end %>
+      <% else %>
+        <%= upload.document.document_name %>
+        <% if upload.document_file? %>
+          <%= image_tag upload.document_file.thumb.url %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <% if step.order == @app.active_stage %>
+
+      <%= form_for [@app, step] do |f| %>
+        <%= f.label :ready_for_review, "Ready for Review?" %>
+        <%= f.check_box :ready_for_review %>
+
+        <%= f.submit "Submit Step for Review" %>
+      <% end %>
+    <% end %>
+    <br>
+    <br>
+  <% end %>

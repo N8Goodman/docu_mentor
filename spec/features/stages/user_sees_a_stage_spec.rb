@@ -4,8 +4,8 @@ feature "user sees a stage's information" do
   let!(:stage1) { FactoryGirl.create(:stage) }
   let!(:procedure1) { FactoryGirl.create(:procedure) }
   let!(:procedure2) { FactoryGirl.create(:procedure) }
-  let!(:level1) { Level.create(procedure: procedure1, stage: stage1) }
-  let!(:level2) { Level.create(procedure: procedure2, stage: stage1) }
+  let!(:level1) { Level.create(procedure: procedure1, stage: stage1, order: 1) }
+  let!(:level2) { Level.create(procedure: procedure2, stage: stage1, order: 1) }
   let!(:admin1) { FactoryGirl.create(:user, admin: true) }
 
   scenario 'view a stage show page' do

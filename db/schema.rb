@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418142551) do
+ActiveRecord::Schema.define(version: 20160420151117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160418142551) do
     t.boolean  "completed",    default: false,  null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.integer  "active_stage", default: 1,      null: false
   end
 
   add_index "apps", ["procedure_id", "user_id"], name: "index_apps_on_procedure_id_and_user_id", unique: true, using: :btree
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160418142551) do
     t.integer  "stage_id",     null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "order",        null: false
   end
 
   add_index "levels", ["procedure_id", "stage_id"], name: "index_levels_on_procedure_id_and_stage_id", unique: true, using: :btree
@@ -74,6 +76,41 @@ ActiveRecord::Schema.define(version: 20160418142551) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  create_table "steps", force: :cascade do |t|
+    t.integer  "app_id",                           null: false
+    t.integer  "user_id",                          null: false
+    t.integer  "stage_id",                         null: false
+    t.boolean  "accepted",         default: false, null: false
+    t.boolean  "ready_for_review", default: false, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "order",                            null: false
+  end
+
+  add_index "steps", ["app_id"], name: "index_steps_on_app_id", using: :btree
+  add_index "steps", ["stage_id"], name: "index_steps_on_stage_id", using: :btree
+  add_index "steps", ["user_id", "app_id", "stage_id"], name: "index_steps_on_user_id_and_app_id_and_stage_id", unique: true, using: :btree
+  add_index "steps", ["user_id"], name: "index_steps_on_user_id", using: :btree
+
+  create_table "uploads", force: :cascade do |t|
+    t.string   "document_file"
+    t.integer  "document_id",                      null: false
+    t.integer  "user_id",                          null: false
+    t.integer  "app_id",                           null: false
+    t.integer  "step_id",                          null: false
+    t.boolean  "accepted",         default: false, null: false
+    t.boolean  "ready_for_review", default: false, null: false
+    t.boolean  "flagged",          default: false, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "uploads", ["app_id"], name: "index_uploads_on_app_id", using: :btree
+  add_index "uploads", ["document_id"], name: "index_uploads_on_document_id", using: :btree
+  add_index "uploads", ["step_id"], name: "index_uploads_on_step_id", using: :btree
+  add_index "uploads", ["user_id", "app_id", "step_id", "document_id"], name: "index_uploads_on_user_id_and_app_id_and_step_id_and_document_id", unique: true, using: :btree
+  add_index "uploads", ["user_id"], name: "index_uploads_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                  null: false
