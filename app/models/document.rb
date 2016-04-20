@@ -1,5 +1,5 @@
 class Document < ActiveRecord::Base
-  has_many :materials
+  has_many :materials, dependent: :destroy
   has_many :stages, through: :materials
   has_many :uploads
 

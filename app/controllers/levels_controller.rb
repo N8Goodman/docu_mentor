@@ -3,6 +3,8 @@ class LevelsController < AdminController
     @procedure = Procedure.find(params[:procedure_id])
     @level = Level.new(level_params)
     @level.procedure = @procedure
+    @order = Level.where(procedure: @procedure)
+    @level.order = @order.length + 1
     if @level.save
       flash[:notice] = "Stage Added!"
     else

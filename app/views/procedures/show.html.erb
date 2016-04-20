@@ -13,6 +13,9 @@
     <% @stages.each do |stage| %>
       <div class="stage-box">
         <%= link_to stage.stage_name, stage_path(stage) %>
+        <%= button_to "+1", upmove_level_orders_path(stage.this_level(@procedure)), id: 'up', method: :post %>
+        <%= button_to "-1", downmove_level_orders_path(stage.this_level(@procedure)), id: 'up', method: :post %>
+
           <% stage.documents.each do |document| %>
             <div class="document-list">
               <div class="document-box">

@@ -5,7 +5,7 @@
   <ul>
     <% current_user.apps.each do |app| %>
       <li>
-        app.procedure.procedure_name
+        <%= link_to app.procedure.procedure_name, app_path(app) %>
       </li>
     <% end %>
   </ul>
