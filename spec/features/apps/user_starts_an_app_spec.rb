@@ -17,7 +17,7 @@ feature "user starts an app" do
   let!(:user1) { FactoryGirl.create(:user) }
 
   scenario "user sees list of apps" do
-      sign_in(user1)
+    sign_in(user1)
 
     expect(page).to have_content "Your Applications:"
   end
