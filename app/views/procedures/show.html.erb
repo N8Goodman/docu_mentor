@@ -12,9 +12,10 @@
   <div class="stage-list">
     <% @stages.each do |stage| %>
       <div class="stage-box">
+        Order: <%= stage.this_level(@procedure).order %>
         <%= link_to stage.stage_name, stage_path(stage) %>
         <%= button_to "+1", upmove_level_orders_path(stage.this_level(@procedure)), id: 'up', method: :post %>
-        <%= button_to "-1", downmove_level_orders_path(stage.this_level(@procedure)), id: 'up', method: :post %>
+        <%= button_to "-1", downmove_level_orders_path(stage.this_level(@procedure)), id: 'down', method: :post %>
 
           <% stage.documents.each do |document| %>
             <div class="document-list">
