@@ -79,6 +79,7 @@ feature "user sees a procedure's stages and documents" do
     expect(page).to have_content document3.document_name
     expect(page).to have_content document4.document_name
   end
+
   scenario "a stage cannot be added to a procedure more than once" do
     sign_in(admin1)
     visit '/procedures'
