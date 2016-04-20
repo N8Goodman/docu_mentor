@@ -5,6 +5,8 @@ class App < ActiveRecord::Base
   has_many :uploads
 
   validates :procedure, presence: true
+  validates :active_stage, presence: true, numericality: true
+  validates :user, presence: true
   validates :user, presence: true
   validates :user, uniqueness: {
     scope: :procedure,

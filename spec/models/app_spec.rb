@@ -14,6 +14,10 @@ RSpec.describe App, type: :model do
       expect(app.procedure).to be_a(Procedure)
     end
 
+    it "should have a default active stage of 1" do
+      expect(app.active_stage).to eq(1)
+    end
+
     it "should have a user" do
       expect(app.user).to be_a(User)
     end

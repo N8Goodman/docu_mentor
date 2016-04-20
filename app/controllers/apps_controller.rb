@@ -12,9 +12,9 @@ class AppsController < ApplicationController
   def create
     @app = App.new(app_params)
     @app.user = current_user
-    make_steps(@app)
-    make_uploads(@app)
     if @app.save
+      make_steps(@app)
+      make_uploads(@app)
       flash[:notice] = "Application started!"
       redirect_to app_path(@app)
     else
