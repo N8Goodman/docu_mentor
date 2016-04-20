@@ -12,7 +12,7 @@ feature "user sees a procedure's stages and documents" do
   let!(:material2) { Material.create(stage: stage1, document: document2) }
   let!(:material3) { Material.create(stage: stage2, document: document3) }
   let!(:material4) { Material.create(stage: stage2, document: document4) }
-  let!(:level2) { Level.create(procedure: procedure1, stage: stage2, , order: 1) }
+  let!(:level2) { Level.create(procedure: procedure1, stage: stage2, order: 1) }
   let!(:admin1) { FactoryGirl.create(:user, admin: true) }
 
   scenario "the stages of a procedure are displayed on the show page" do
