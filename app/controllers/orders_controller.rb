@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-
   def upmove
     @level = Level.find(params[:level_id])
     @procedure = @level.procedure

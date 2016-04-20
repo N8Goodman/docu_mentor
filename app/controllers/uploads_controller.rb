@@ -1,5 +1,4 @@
 class UploadsController < ApplicationController
-
   def update
     @upload = Upload.find(params[:id])
     @upload.update(upload_params)

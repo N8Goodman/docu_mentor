@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Procedure, type: :model do
   let!(:procedure) { FactoryGirl.create(:procedure) }
   let!(:stage) { FactoryGirl.create(:stage) }
-  let!(:level) { Level.create(stage: stage, procedure: procedure) }
+  let!(:level) { Level.create(stage: stage, procedure: procedure, order: 1) }
 
   describe ".new" do
     it "should be an Procedure object" do

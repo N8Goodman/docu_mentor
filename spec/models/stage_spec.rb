@@ -4,7 +4,7 @@ RSpec.describe Stage, type: :model do
   let!(:procedure) { FactoryGirl.create(:procedure) }
   let!(:stage) { FactoryGirl.create(:stage) }
   let!(:document) { FactoryGirl.create(:document) }
-  let!(:level) { Level.create(stage: stage, procedure: procedure) }
+  let!(:level) { Level.create(stage: stage, procedure: procedure, order: 1) }
   let!(:material) { Material.create(stage: stage, document: document) }
 
   describe ".new" do
