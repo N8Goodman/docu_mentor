@@ -1,7 +1,6 @@
 class UploadsController < ApplicationController
   def update
     @upload = Upload.find(params[:id])
-    binding.pry
     if !params[:upload].nil?
       @upload.update(upload_params)
     end

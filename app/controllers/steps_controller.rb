@@ -2,7 +2,6 @@ class StepsController < ApplicationController
   def update
     @step = Step.find(params[:id])
     @app = @step.app
-    binding.pry
     if params[:step][:ready_for_review] == '1' && check_step(@step)
       @step.update(accepted: true)
       if @step.save
@@ -14,7 +13,6 @@ class StepsController < ApplicationController
         @step.errors.full_messages.join" ,"
       end
     elsif params[:step][:ready_for_review] == '1'
-      binding.pry
       flash[:error] = "All uploads must be completed before submission"
     end
     redirect_to app_path(@step.app)
@@ -23,12 +21,12 @@ class StepsController < ApplicationController
   private
 
   def check_step(step)
-      step.uploads.each do |upload|
-        if !upload_accepted(upload)
-          return false
-        end
+    step.uploads.each do |upload|
+      if !upload_accepted(upload)
+        return false
       end
-      return true
+    end
+    return true
   end
 
   def upload_accepted(upload)
