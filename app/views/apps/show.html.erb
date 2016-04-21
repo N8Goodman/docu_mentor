@@ -4,7 +4,7 @@
 <% end %>
 <h3>For: <%= @app.user.user_name %></h3>
 
-<% @app.steps.each do |step| %>
+<% @steps.each do |step| %>
   <%= step.order %>. <%= step.stage.stage_name %>
   <% if step.accepted? %>
     (<%= step.stage.completion_status %>)
@@ -13,17 +13,22 @@
     <% step.uploads.each do |upload| %>
       <% if step.order == @app.active_stage %>
         <%= form_for [@app, upload] do |f| %>
-          <%= upload.id %>
           <% if f.object.document_file? %>
             <%= image_tag f.object.document_file.thumb.url %>
           <% end %>
           <%= f.label :document_file, "#{upload.document.document_name}" %>
+          <% if f.object.accepted %>
+            (<%= f.object.document.completion_status %>)
+          <% end %>
           <%= f.file_field :document_file %>
 
           <%= f.submit "Upload File" %>
         <% end %>
       <% else %>
         <%= upload.document.document_name %>
+        <% if upload.accepted %>
+          (<%= upload.document.completion_status %>)
+        <% end %>
         <% if upload.document_file? %>
           <%= image_tag upload.document_file.thumb.url %>
         <% end %>

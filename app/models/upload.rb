@@ -10,4 +10,5 @@ class Upload < ActiveRecord::Base
   validates :step, presence: true
   validates :document, presence: true
   validates :app, presence: true
+  validates :document_file, presence: true, on: :update
 end
