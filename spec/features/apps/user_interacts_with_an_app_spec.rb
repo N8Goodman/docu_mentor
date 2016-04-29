@@ -41,6 +41,31 @@ feature "user works on an app" do
     expect(page).to have_content "For: #{user1.user_name}"
   end
 
+  xscenario "user is able to upload a file" do
+    sign_in(user1)
+
+    select procedure1.procedure_name, from: "Procedure"
+    click_on "Start Application"
+
+    attach_file "#{document1.document_name}", "#{Rails.root}/spec/support/images/photo.png"
+
+    click_on("Upload #{document1.document_name}")
+
+    expect(page).to have_content document1.completion_status
+  end
+
+  xscenario "user is unable to move to the next stage until all uploads are submitted" do
+    sign_in(user1)
+
+    select procedure1.procedure_name, from: "Procedure"
+    click_on "Start Application"
+
+    check "Ready for Review?"
+    click_on "Submit Step for Review"
+
+    expect(page).to have_content "You must upload all files "
+    end
+
   scenario "user is able to move to the next stage" do
     sign_in(user1)
 

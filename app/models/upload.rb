@@ -1,5 +1,6 @@
 class Upload < ActiveRecord::Base
   belongs_to :user
+  belongs_to :icon
   belongs_to :step
   belongs_to :document
   belongs_to :app

@@ -2,21 +2,19 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :procedures do
-    resources :levels, only: [:create, :delete]
+    resources :levels, only: [:create]
   end
 
   resources :levels do
-    resources :orders do
-      collection do
-        post 'upmove'
-        post 'downmove'
-      end
+    collection do
+      post 'update'
     end
   end
 
   resources :stages do
-    resources :materials, only: [:create, :delete]
+    resources :materials, only: [:create]
   end
+  resources :materials, only: [:destroy]
 
   resources :apps do
     resources :steps

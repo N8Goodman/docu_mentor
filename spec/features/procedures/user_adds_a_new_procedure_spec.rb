@@ -55,7 +55,7 @@ feature "user adds a new procedure " do
     expect(page).to_not have_content "Description: Application to secure a mortgage for purchasing a home"
   end
 
-  scenario 'user tries to add a procedure without a completion title' do
+  xscenario 'user tries to add a procedure without a completion title' do
     sign_in(admin1)
     visit new_procedure_path
 

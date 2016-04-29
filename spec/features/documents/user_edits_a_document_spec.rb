@@ -75,7 +75,7 @@ feature "user edits a new document" do
     expect(page).to_not have_content "Description: A list of items for purchaser"
   end
 
-  scenario 'user tries to edit a document without a completion title' do
+  xscenario 'user tries to edit a document without a completion title' do
     sign_in(admin1)
     visit '/documents'
 
@@ -93,7 +93,7 @@ feature "user edits a new document" do
     expect(page).to_not have_content "Description: A list of items for purchase"
   end
 
-  scenario 'user tries to edit a document without any fields' do
+  xscenario 'user tries to edit a document without any fields' do
     sign_in(admin1)
     visit '/documents'
 

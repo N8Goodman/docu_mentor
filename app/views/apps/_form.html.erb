@@ -4,5 +4,5 @@
     <%= f.label :procedure_id %>
     <%= f.collection_select(:procedure_id, @procedure_selects, :id, :procedure_name) %>
 
-    <%= f.submit "Start Application" %>
+    <%= f.submit "Start Application", class: 'button' %>
   <% end %>

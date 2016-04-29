@@ -1,30 +1,65 @@
-<h1><%= @stage.stage_name %></h1>
-  <%= button_to "Update Stage", edit_stage_path(@stage), method: :get %>
-  <%= button_to "Delete Stage", stage_path(@stage), method: :delete %>
-  <br>
-  Description: <%= @stage.description %>
-  <br>
-  When completed: <%= @stage.completion_status %>
-  <br>
-  Documents:
-  <%= render '/materials/form' %>
-  <br>
-  <div class="document-list">
-    <% @stage.documents.each do |document| %>
-      <div class="document-box">
-        <%= link_to document.document_name, document_path(document) %>
-      </div>
-    <% end %>
+<div class="staging-area">
+  <h1><%= @stage.stage_name %></h1>
+  <div class="inline">
+    <%= button_to "Update Stage", edit_stage_path(@stage), method: :get, class: 'button' %>
+    <%= button_to "Delete Stage", stage_path(@stage), method: :delete, class: 'button' %>
   </div>
+    <br>
+    Description: <%= @stage.description %>
+    <br>
+    When completed: <%= @stage.completion_status %>
+    <br>
+    Documents:
+    <%= render '/materials/form' %>
+    <br>
+    <div class="small-12 medium-12 large-12 columns">
+      <div class="document-list">
+        <% @stage.documents.each do |document| %>
+            <div class="small-12 medium-6 large-4 column" id="square-outer">
+              <div class="callout secondary" id="square">
+                <div class="doc-name">
+                  <%= link_to document.document_name, document_path(document) %>
+                  <div class="reveal" id="document-mod<%=document.id%>" data-reveal>
+                    <h1><%=document.document_name%></h1>
+                    <p class="lead"><%=document.document_name%></p>
+                    <p><%=document.description%></p>
+                    <p>On Complete: <%=document.completion_status%></p>
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="button" id="info-button" data-open="document-mod<%=document.id%>">i</div>
+                </div>
+                <%= button_to "X", material_path(document.this_material(@stage)), method: :delete, class: 'button x-button' %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
 
-  <h3>Procedures:</h3>
-  <p>
-    This stage is used in the following procedures:
-  </p>
-  <ul>
-    <% @stage.procedures.each do |procedure| %>
-      <li>
-        <%= link_to procedure.procedure_name, procedure_path(procedure) %>
+
+    <div class="procedure-list">
+      <h3>Procedures:</h3>
+      <p>
+        This stage is used in the following procedures:
+      </p>
+      <ul>
+        <% @stage.procedures.each do |procedure| %>
+          <li>
+            <%= link_to procedure.procedure_name, procedure_path(procedure) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+</div>
+
+<div class="document-options-box">
+  <h4>Available Documents:</h4>
+  <ul id="document-options">
+    <% @document_options.each do |document| %>
+      <li class="document-option">
+        <%= document.document_name %>
       </li>
     <% end %>
   </ul>
+</div>

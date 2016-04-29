@@ -1,9 +1,10 @@
-<h4>Add a Document:</h4>
+<div class="wide-form-box">
+  <h4>Add a Document:</h4>
 
   <%= form_for [@stage, @material] do |f| %>
-
     <%= f.label :document_id %>
     <%= f.collection_select(:document_id, @document_selects, :id, :document_name) %>
 
-    <%= f.submit "Add Document" %>
+    <%= f.submit "Add Document", class: 'button' %>
   <% end %>
+</div>
