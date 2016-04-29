@@ -1,29 +1,78 @@
-<h1><%= @procedure.procedure_name %></h1>
-  <%= button_to "Update Procedure", edit_procedure_path(@procedure), method: :get %>
-  <%= button_to "Delete Procedure", procedure_path(@procedure), method: :delete %>
-  <br>
-  Description: <%= @procedure.description %>
-  <br>
-  When completed: <%= @procedure.completion_status %>
-  <br>
-  Stages:
-  <%= render '/levels/form' %>
-  <br>
-  <div class="stage-list">
-    <% @stages.each do |stage| %>
-      <div class="stage-box">
-        Order: <%= stage.this_level(@procedure).order %>
-        <%= link_to stage.stage_name, stage_path(stage) %>
-        <%= button_to "+1", upmove_level_orders_path(stage.this_level(@procedure)), id: 'up', method: :post %>
-        <%= button_to "-1", downmove_level_orders_path(stage.this_level(@procedure)), id: 'down', method: :post %>
-
-          <% stage.documents.each do |document| %>
-            <div class="document-list">
-              <div class="document-box">
-                <%= link_to document.document_name, document_path(document) %>
+<div class="procedure-box">
+  <h1><%= @procedure.procedure_name %></h1>
+    <div class="inline">
+      <%= button_to "Update Procedure", edit_procedure_path(@procedure), method: :get, class: 'button' %>
+      <%= button_to "Delete Procedure", procedure_path(@procedure), method: :delete, class: 'button' %>
+    </div>
+    <span id="procedureid" data-procedure-id="<%= @procedure.id %>"></span>
+    <div>
+      Description: <%= @procedure.description %>
+    </div>
+    <div>
+      When completed: <%= @procedure.completion_status %>
+    </div>
+    <div class="form-box">
+      <%= render '/levels/form' %>
+    </div>
+  <div class="stagelist">
+    <ul id="stage-sort">
+      <% @stages.each do |stage| %>
+      <li class="drag-backdrop" id="<%= stage.id %>">
+        <div class="small-12 medium-12 large-12 columns" id="stage-box">
+          <div class="stage-header">
+            <div class="stage-info">
+              <div id="stage-<%= stage.id %>">
+                Step #<%= stage.this_level(@procedure).order %>
+              </div>
+              <%= link_to stage.stage_name, stage_path(stage) %>
+              <div class="button" id="info-button" data-open="stage-mod<%=stage.id%>">i</div>
+            </div>
+            <div class="x-holder">
+              <%= button_to "X", level_path(stage.this_level(@procedure)), method: :delete, class: 'button x-button' %>
+            </div>
+          </div>
+          <div class="reveal" id="stage-mod<%=stage.id%>" data-reveal>
+            <h1><%=stage.stage_name%></h1>
+            <p class="lead"><%=stage.stage_name%></p>
+            <p><%=stage.description%></p>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <% stage.documents.each do |document| %>
+            <div>
+              <div class="small-12 medium-6 large-4 column" id="square-outer">
+                <div class="callout secondary" id="square">
+                  <div class="doc-name">
+                    <%= link_to document.document_name, document_path(document) %>
+                    <div class="reveal" id="document-mod<%=document.id%>" data-reveal>
+                      <h1><%=document.document_name%></h1>
+                      <p class="lead"><%=document.document_name%></p>
+                      <p><%=document.description%></p>
+                      <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  <div class="button" id="info-button" data-open="document-mod<%=document.id%>">i</div>
+                  </div>
+                </div>
               </div>
             </div>
           <% end %>
-      </div>
-    <% end %>
+        </div>
+      </li>
+      <% end %>
+    </ul>
   </div>
+</div>
+
+<div class="stage-options-box">
+  <h4>Available Stages:</h4>
+  <ul id="stage-options">
+    <% @stage_options.each do |stage| %>
+      <li class="stage-option">
+        <%= stage.stage_name %>
+      </li>
+    <% end %>
+  </ul>
+</div>

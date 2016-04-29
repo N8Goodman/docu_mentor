@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420151117) do
+ActiveRecord::Schema.define(version: 20160427195452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +31,16 @@ ActiveRecord::Schema.define(version: 20160420151117) do
   add_index "apps", ["user_id"], name: "index_apps_on_user_id", using: :btree
 
   create_table "documents", force: :cascade do |t|
-    t.string   "document_name",     null: false
+    t.string   "document_name",                          null: false
     t.text     "description"
-    t.string   "completion_status", null: false
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "completion_status", default: "Accepted", null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  create_table "icons", force: :cascade do |t|
+    t.string "name",     null: false
+    t.string "icon_img", null: false
   end
 
   create_table "levels", force: :cascade do |t|
@@ -62,19 +67,19 @@ ActiveRecord::Schema.define(version: 20160420151117) do
   add_index "materials", ["stage_id"], name: "index_materials_on_stage_id", using: :btree
 
   create_table "procedures", force: :cascade do |t|
-    t.string   "procedure_name",    null: false
+    t.string   "procedure_name",                         null: false
     t.text     "description"
-    t.string   "completion_status", null: false
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "completion_status", default: "Complete", null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "stages", force: :cascade do |t|
-    t.string   "stage_name",        null: false
+    t.string   "stage_name",                             null: false
     t.text     "description"
-    t.string   "completion_status", null: false
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "completion_status", default: "Approved", null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "steps", force: :cascade do |t|
@@ -104,6 +109,7 @@ ActiveRecord::Schema.define(version: 20160420151117) do
     t.boolean  "flagged",          default: false, null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.integer  "icon_id",          default: 5
   end
 
   add_index "uploads", ["app_id"], name: "index_uploads_on_app_id", using: :btree

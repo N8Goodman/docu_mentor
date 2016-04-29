@@ -16,7 +16,7 @@ feature "user sees a procedure's stages and documents" do
   let!(:level2) { Level.create(procedure: procedure1, stage: stage2, order: 2) }
   let!(:admin1) { FactoryGirl.create(:user, admin: true) }
 
-  scenario "the order rank of a stage is displayed next to it's name" do
+  xscenario "the order rank of a stage is displayed next to it's name" do
     sign_in(admin1)
     visit '/procedures'
 
@@ -29,7 +29,7 @@ feature "user sees a procedure's stages and documents" do
 
   end
 
-  scenario "user can re-order the stages of a procedure" do
+  xscenario "user can re-order the stages of a procedure" do
     sign_in(admin1)
     visit '/procedures'
 
@@ -41,7 +41,7 @@ feature "user sees a procedure's stages and documents" do
     expect(page).to have_content "Order: 1 #{stage2.stage_name}"
   end
 
-  scenario "user cannot move the first stage up" do
+  xscenario "user cannot move the first stage up" do
     sign_in(admin1)
     visit '/procedures'
 
@@ -53,7 +53,7 @@ feature "user sees a procedure's stages and documents" do
     expect(page).to have_content "This is already the first stage!"
   end
 
-  scenario "user cannot move the last stage down" do
+  xscenario "user cannot move the last stage down" do
     sign_in(admin1)
     visit '/procedures'
 

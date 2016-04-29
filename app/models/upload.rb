@@ -1,5 +1,6 @@
 class Upload < ActiveRecord::Base
   belongs_to :user
+  belongs_to :icon
   belongs_to :step
   belongs_to :document
   belongs_to :app
@@ -10,4 +11,5 @@ class Upload < ActiveRecord::Base
   validates :step, presence: true
   validates :document, presence: true
   validates :app, presence: true
+  validates :document_file, presence: true, on: :update
 end

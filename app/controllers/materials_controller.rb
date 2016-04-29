@@ -11,6 +11,16 @@ class MaterialsController < AdminController
     redirect_to stage_path(@stage)
   end
 
+  def destroy
+    @material = Material.find(params[:id])
+    if @material.destroy!
+      flash[:notice] = "#{@material.document.document_name} has been removed from stage!"
+    else
+      flash[:error] = @material.errors.full_messages.join", "
+    end
+    redirect_to stage_path(@material.stage)
+  end
+
   private
 
   def material_params

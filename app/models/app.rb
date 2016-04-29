@@ -1,7 +1,7 @@
 class App < ActiveRecord::Base
   belongs_to :procedure
   belongs_to :user
-  has_many :steps
+  has_many :steps, -> { order('steps.order asc') }
   has_many :uploads
 
   validates :procedure, presence: true

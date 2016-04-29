@@ -75,7 +75,7 @@ feature "user edits a new stage " do
     expect(page).to_not have_content "Description: The first stage of the processr"
   end
 
-  scenario 'user tries to edit a stage without a completion title' do
+  xscenario 'user tries to edit a stage without a completion title' do
     sign_in(admin1)
     visit '/stages'
 
@@ -93,7 +93,7 @@ feature "user edits a new stage " do
     expect(page).to_not have_content "Description: The first stage of the processr"
   end
 
-  scenario 'user tries to edit a stage without any fields' do
+  xscenario 'user tries to edit a stage without any fields' do
     sign_in(admin1)
     visit '/stages'
 

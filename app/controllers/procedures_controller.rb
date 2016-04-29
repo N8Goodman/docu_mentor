@@ -8,6 +8,7 @@ class ProceduresController < AdminController
     @stage_selects = Stage.all
     @procedure = Procedure.find(params[:id])
     @stages = @procedure.stages
+    @stage_options = @stage_selects - @stages
   end
 
   def new

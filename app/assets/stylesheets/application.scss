@@ -1,25 +1,264 @@
-.document-box {
-  width: 20px;
+/*
+* This is a manifest file that"ll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin"s vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You"re free to add application-wide styles to this file and they"ll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require foundation
+*= require dropzone/dropzone
+*/
+@import "_settings";
+  $base-green: #3F7F40;
+  $drop-green: #51A351;
+  $light-green: #5bb75b;
+
+.outer {
+ background-color: $base-green ;
+ position: relative;
+ display: inline-block;
+ height: auto;
+ width: 100%;
+ padding-bottom: 0;
+}
+
+#square-outer {
+ float: left;
+ padding: 2px;
+ height: 80%;
+}
+
+.doc-name{
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.outer .header {
+  background-color: $base-green ;
+ position: absolute;
+ bottom: 0;
+ top: auto;
+}
+
+.rollover-content a {
+   color: #fff;
+   font-size: 16px;
+   font-weight: 400;
+   font-family: "Montserrat";
+   padding: 10px 16px;
+   display: inline;
+}
+
+.rollover-content *{
+  padding: 2px;
+}
+
+.rollover-content a:hover {
+ color: #fefefe;
+ font-size: 16px;
+ font-weight: 400;
+ font-family: "Montserrat";
+ text-decoration: underline;
+}
+
+#stage-box {
+  border: 2px solid #fff;
+  height: auto;
+  background-color: #ededed;
+}
+
+.logo{
+  float: left;
+  width: auto;
+}
+
+.inline *{
+  display: inline;
+}
+
+#nav-right {
+  float: right;
+  margin-right: 1%;
+  width: 50%;
+}
+
+#nav-left {
+  float: left;
+  width: auto;
+}
+
+.main-content {
+  clear: both;
+}
+
+.procedure-list {
+  float: left;
+}
+
+#stage-sort {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+  width: 80%;
+  background-color: #ddd;
+}
+
+#stage-sort li {
+  margin: 0 3px 3px 3px;
+  padding: 0.4em;
+  padding-left: 1.5em;
+  font-size: 17px;
+  height: auto;
+}
+
+.default {
+   background: #cedc98;
+   border: 1px solid #DDDDDD;
+   color: #333333;
+}
+
+.highlight {
+   border: 1px #fff;
+   font-weight: bold;
+   font-size: 45px;
+   background-color: #fff;
+   height: auto;
+}
+
+.stage-left {
+  padding-top: 15px;
+}
+
+.submit-step {
+}
+
+.stage-info {
+  width: 80%;
+}
+
+.stage-header{
+  width: 100%;
+}
+
+.stage-header *{
+  display: inline-block;
+}
+
+.upload-box {
+  width: 50%;
+  height: auto;
+  float: left;
+}
+
+.upload-info {
+  height: 50%;
+  float: left;
+}
+
+.dropzone {
+  text-align: center;
+  height: 50%;
+  width: 100%;
+}
+
+.dz-default{
+display: none;
+visibility: hidden;
+}
+
+.dz-success {
+display: none;
+visibility: hidden;
+}
+
+.dz-image {
+display: none;
+visibility: hidden;
+height: 0px;
+width: 0px;
+}
+
+.dz-image-preview {
+display: none;
+visibility: hidden;
+height: 0px;
+width: 0px;
+}
+
+.procedure-box {
+  float: left;
+  width: 80%;
+}
+
+.stage-options-box {
+  float: right;
+  width: 20%;
+}
+.staging-area {
+  float: left;
+  width: 80%;
+}
+.step-name-box{
+  padding: 1px;
+}
+
+.document-options-box {
+  float: right;
+  width: 20%;
+}
+
+#info-button {
+  padding: 0;
   height: 20px;
-  padding: 5px;
-  background-color: red;
-  display: inline;
-
-}
-.document-list {
-  padding: 10px;
-  background-color: blue;
-  display: inline;
-}
-.stage-box {
-  height: 80px;
-  background-color: grey;
-  padding: 5px;
-
+  width: 20px;
+  border-radius: 5px;
+  background-color: #FFB745;
 }
 
-.stage-list {
-  padding: 10px;
-  background-color: green;
+.button {
+  border-radius: 15px;
+  background-color: $light-green;
+}
 
+#flash-notices-non-js {
+  text-align: center;
+  background-color: #EFEFEF;
+  padding: 0;
+}
+.x-holder {
+  width: 10%;
+  float: right;
+}
+
+.x-button {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+}
+.complete-step-box {
+  width: 50%;
+  height: auto;
+  float: left;
+}
+
+.form-box {
+  width: 40%;
+}
+
+.wide-form-box {
+  width: 80%;
+}
+
+.wide-box {
+  width: auto;
 }

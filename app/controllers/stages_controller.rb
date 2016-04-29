@@ -8,6 +8,7 @@ class StagesController < AdminController
     @document_selects = Document.all
     @stage = Stage.find(params[:id])
     @documents = @stage.documents
+    @document_options = @document_selects - @documents
   end
 
   def new

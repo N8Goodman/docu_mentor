@@ -6,6 +6,7 @@ class AppsController < ApplicationController
 
   def show
     @app = App.find(params[:id])
+    @steps = @app.steps
     @uploads = @app.uploads
   end
 
