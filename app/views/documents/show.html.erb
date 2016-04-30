@@ -1,10 +1,13 @@
 <h1><%= @document.document_name %></h1>
-  <%= button_to "Update Document", edit_document_path(@document), method: :get, class: 'button' %>
-  <%= button_to "Delete Document", document_path(@document), method: :delete, class: 'button' %>
-  <br>
+<div class='information-box'>
   Description: <%= @document.description %>
   <br>
   When completed: <%= @document.completion_status %>
+</div>
+<div class="inline">
+  <%= button_to "Update Document", edit_document_path(@document), method: :get, class: 'button' %>
+  <%= button_to "Delete Document", document_path(@document), method: :delete, class: 'button' %>
+</div>
 
   <h3>Stages:</h3>
   <p>

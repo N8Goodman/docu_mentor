@@ -35,12 +35,23 @@
  height: 80%;
 }
 
+#square-outer-active {
+ float: left;
+ padding: 2px;
+ height: 80%;
+ background-color: $base-green;
+}
+
 .doc-name{
   text-align: center;
   height: 30px;
   line-height: 30px;
   white-space: nowrap;
   width: auto;
+}
+
+.doc-name *{
+  display: inline-block;
 }
 
 .outer .header {
@@ -63,6 +74,10 @@
   padding: 2px;
 }
 
+.rollover-content {
+  display: flex;
+}
+
 .rollover-content a:hover {
  color: #fefefe;
  font-size: 16px;
@@ -80,6 +95,7 @@
 .logo{
   float: left;
   width: auto;
+  padding-top: 2.2%;
 }
 
 .inline *{
@@ -95,6 +111,7 @@
 #nav-left {
   float: left;
   width: auto;
+  padding-top: 3%;
 }
 
 .main-content {
@@ -102,6 +119,7 @@
 }
 
 .procedure-list {
+  padding-top: 6%;
   float: left;
 }
 
@@ -109,7 +127,7 @@
   list-style-type: none;
   margin: 0;
   padding: 5px;
-  width: 80%;
+  width: auto;
   background-color: #ddd;
 }
 
@@ -148,6 +166,7 @@
 
 .stage-header{
   width: 100%;
+  height: auto;
 }
 
 .stage-header *{
@@ -235,15 +254,17 @@ width: 0px;
   background-color: #EFEFEF;
   padding: 0;
 }
-.x-holder {
-  width: 10%;
-  float: right;
+
+.xbutton {
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  padding: 0;
+  border-radius: 5px;
 }
 
-.x-button {
-  height: 40px;
-  width: 40px;
-  text-align: center;
+.x-holder{
+  float: right;
 }
 .complete-step-box {
   width: 50%;
@@ -252,13 +273,37 @@ width: 0px;
 }
 
 .form-box {
+  padding-top: 5%;
   width: 40%;
 }
 
 .wide-form-box {
-  width: 80%;
+  padding-top: 2%;
+  width: auto;
 }
 
-.wide-box {
+#square {
   width: auto;
+}
+
+.stagelist {
+  width: auto;
+}
+
+.information-box {
+  padding-bottom: 3.5%;
+}
+
+.doc-list {
+  width: 30%;
+  float: right;
+}
+.new-display {
+  display: inline;
+  width: 100%;
+}
+
+#stage-background {
+  padding: 5px;
+  background-color: #ddd;
 }

@@ -12,6 +12,7 @@ class StagesController < AdminController
   end
 
   def new
+    @stages = Stage.all
     @stage = Stage.new
   end
 

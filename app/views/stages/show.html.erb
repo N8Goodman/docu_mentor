@@ -1,18 +1,18 @@
 <div class="staging-area">
   <h1><%= @stage.stage_name %></h1>
+  <div class='information-box'>
+    Description: <%= @stage.description %>
+    <br>
+    When completed: <%= @stage.completion_status %>
+  </div>
   <div class="inline">
     <%= button_to "Update Stage", edit_stage_path(@stage), method: :get, class: 'button' %>
     <%= button_to "Delete Stage", stage_path(@stage), method: :delete, class: 'button' %>
   </div>
-    <br>
-    Description: <%= @stage.description %>
-    <br>
-    When completed: <%= @stage.completion_status %>
-    <br>
-    Documents:
+  <div class="wide-form-box">
     <%= render '/materials/form' %>
-    <br>
-    <div class="small-12 medium-12 large-12 columns">
+  </div>
+    <div class="small-12 medium-12 large-12 columns", id="stage-background">
       <div class="document-list">
         <% @stage.documents.each do |document| %>
             <div class="small-12 medium-6 large-4 column" id="square-outer">
@@ -29,8 +29,10 @@
                     </button>
                   </div>
                   <div class="button" id="info-button" data-open="document-mod<%=document.id%>">i</div>
+                  <div class="x-holder">
+                    <%= button_to "X", material_path(document.this_material(@stage)), method: :delete, class: 'button xbutton' %>
+                  </div>
                 </div>
-                <%= button_to "X", material_path(document.this_material(@stage)), method: :delete, class: 'button x-button' %>
               </div>
             </div>
         <% end %>

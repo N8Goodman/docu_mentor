@@ -1,2 +1,14 @@
 <h1>Add a new Stage:</h1>
-<%= render 'form' %>
+<div class="new-display">
+  <div class="doc-list">
+    <h3>Stages:</h3>
+    <% @stages.each do |sta| %>
+      <li>
+        <%=sta.stage_name%>
+      </li>
+    <% end %>
+  </div>
+  <div class="form-box">
+    <%= render 'form' %>
+  </div>
+</div>

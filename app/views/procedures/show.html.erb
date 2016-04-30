@@ -1,17 +1,16 @@
 <div class="procedure-box">
   <h1><%= @procedure.procedure_name %></h1>
+    <span id="procedureid" data-procedure-id="<%= @procedure.id %>"></span>
+    <div class='information-box'>
+      Description: <%= @procedure.description %>
+      <br>
+      When completed: <%= @procedure.completion_status %>
+    </div>
     <div class="inline">
       <%= button_to "Update Procedure", edit_procedure_path(@procedure), method: :get, class: 'button' %>
       <%= button_to "Delete Procedure", procedure_path(@procedure), method: :delete, class: 'button' %>
     </div>
-    <span id="procedureid" data-procedure-id="<%= @procedure.id %>"></span>
-    <div>
-      Description: <%= @procedure.description %>
-    </div>
-    <div>
-      When completed: <%= @procedure.completion_status %>
-    </div>
-    <div class="form-box">
+    <div class="wide-form-box">
       <%= render '/levels/form' %>
     </div>
   <div class="stagelist">
@@ -28,7 +27,7 @@
               <div class="button" id="info-button" data-open="stage-mod<%=stage.id%>">i</div>
             </div>
             <div class="x-holder">
-              <%= button_to "X", level_path(stage.this_level(@procedure)), method: :delete, class: 'button x-button' %>
+              <%= button_to "X", level_path(stage.this_level(@procedure)), method: :delete, class: 'button xbutton' %>
             </div>
           </div>
           <div class="reveal" id="stage-mod<%=stage.id%>" data-reveal>
@@ -39,8 +38,8 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+          <div class="file-line">
             <% stage.documents.each do |document| %>
-            <div>
               <div class="small-12 medium-6 large-4 column" id="square-outer">
                 <div class="callout secondary" id="square">
                   <div class="doc-name">
@@ -53,12 +52,12 @@
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                  <div class="button" id="info-button" data-open="document-mod<%=document.id%>">i</div>
+                    <div class="button" id="info-button" data-open="document-mod<%=document.id%>">i</div>
                   </div>
                 </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </li>
       <% end %>

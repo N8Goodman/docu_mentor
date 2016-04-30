@@ -12,6 +12,7 @@ class ProceduresController < AdminController
   end
 
   def new
+    @procedures = Procedure.all
     @procedure = Procedure.new
   end
 

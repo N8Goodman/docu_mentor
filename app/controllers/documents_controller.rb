@@ -8,6 +8,7 @@ class DocumentsController < AdminController
   end
 
   def new
+    @documents = Document.all
     @document = Document.new
   end
 

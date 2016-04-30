@@ -1,16 +1,32 @@
 <h1>Applications:</h1>
 
-<h3>Your Applications:</h3>
 <% if current_user && !current_user.apps.empty?%>
+<h4>Your Applications:</h4>
+<br>
+  <% if !@open_apps.empty? %>
+  <h5>Open Applications:</h5>
   <ul>
-    <% current_user.apps.each do |app| %>
+    <% @open_apps.each do |app| %>
       <li>
         <%= link_to app.procedure.procedure_name, app_path(app) %>
       </li>
     <% end %>
   </ul>
-<% else %>
-  Start an application:
+  <% end %>
+  <br>
+  <% if !@completed_apps.empty? %>
+    <h5>Finished Applications:</h5>
+    <ul>
+      <% current_user.apps.each do |app| %>
+        <% if app.completed %>
+          <li>
+            <%= link_to app.procedure.procedure_name, app_path(app) %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
 <% end %>
-<br>
-<%= render 'form' %>
+<div class="wide-form-box">
+  <%= render 'form' %>
+</div>
