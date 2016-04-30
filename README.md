@@ -25,12 +25,12 @@ In a real world-application, administrators would be able to review a stage when
 ####Next Features to Implement:
 
 1. Email Notifications:
-..* Admins are notified when a stage is submitted for review
-..* Users are notified when a stage is accepted or rejected
+  * Admins are notified when a stage is submitted for review
+  * Users are notified when a stage is accepted or rejected
 2. Email Packaging:
-..* When a stage is submitted for review, admins will be able to easily export the files into a nested folder system, allowing the files to be emailed to any relevant parties
+  * When a stage is submitted for review, admins will be able to easily export the files into a nested folder system, allowing the files to be emailed to any relevant parties
 React Integration:
 3. When creating a process, Admins will be able to drag and drop available stages directly into the procedure.
-..* Similarly, when creating stages, Admins will be able to drag and drop stages onto process.
-One Page Process Creation:
-4. The entire process creation functionality will be done on one page with the ability to directly add stages to a process and documents to a stage.
+  * Similarly, when creating stages, Admins will be able to drag and drop stages onto process.
+4. One Page Process Creation:
+  * The entire process creation functionality will be done on one page with the ability to directly add stages to a process and documents to a stage.
