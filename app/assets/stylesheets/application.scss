@@ -21,28 +21,28 @@
   $light-green: #5bb75b;
 
 .outer {
- background-color: $base-green ;
- position: relative;
- display: inline-block;
- height: auto;
- width: 100%;
- padding-bottom: 0;
+  background-color: $base-green ;
+  position: relative;
+  display: inline-block;
+  height: auto;
+  width: 100%;
+  padding-bottom: 0;
 }
 
 #square-outer {
- float: left;
- padding: 2px;
- height: 80%;
+  float: left;
+  padding: 2px;
+  height: 80%;
 }
 
 #square-outer-active {
- float: left;
- padding: 2px;
- height: 80%;
- background-color: $base-green;
+  float: left;
+  padding: 2px;
+  height: 80%;
+  background-color: $base-green;
 }
 
-.doc-name{
+.doc-name {
   text-align: center;
   height: 30px;
   line-height: 30px;
@@ -56,18 +56,18 @@
 
 .outer .header {
   background-color: $base-green ;
- position: absolute;
- bottom: 0;
- top: auto;
+  position: absolute;
+  bottom: 0;
+  top: auto;
 }
 
 .rollover-content a {
-   color: #fff;
-   font-size: 16px;
-   font-weight: 400;
-   font-family: "Montserrat";
-   padding: 10px 16px;
-   display: inline;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Montserrat";
+  padding: 10px 16px;
+  display: inline;
 }
 
 .rollover-content *{
@@ -79,11 +79,11 @@
 }
 
 .rollover-content a:hover {
- color: #fefefe;
- font-size: 16px;
- font-weight: 400;
- font-family: "Montserrat";
- text-decoration: underline;
+  color: #fefefe;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Montserrat";
+  text-decoration: underline;
 }
 
 #stage-box {
@@ -92,7 +92,7 @@
   background-color: #ededed;
 }
 
-.logo{
+.logo {
   float: left;
   width: auto;
   padding-top: 2.2%;
@@ -140,31 +140,28 @@
 }
 
 .default {
-   background: #cedc98;
-   border: 1px solid #DDDDDD;
-   color: #333333;
+  background: #cedc98;
+  border: 1px solid #DDDDDD;
+  color: #333333;
 }
 
 .highlight {
-   border: 1px #fff;
-   font-weight: bold;
-   font-size: 45px;
-   background-color: #fff;
-   height: auto;
+  border: 1px #fff;
+  font-weight: bold;
+  font-size: 45px;
+  background-color: #fff;
+  height: auto;
 }
 
 .stage-left {
   padding-top: 15px;
 }
 
-.submit-step {
-}
-
 .stage-info {
   width: 80%;
 }
 
-.stage-header{
+.stage-header {
   width: 100%;
   height: auto;
 }
@@ -191,27 +188,27 @@
 }
 
 .dz-default{
-display: none;
-visibility: hidden;
+  display: none;
+  visibility: hidden;
 }
 
 .dz-success {
-display: none;
-visibility: hidden;
+  display: none;
+  visibility: hidden;
 }
 
 .dz-image {
-display: none;
-visibility: hidden;
-height: 0px;
-width: 0px;
+  display: none;
+  visibility: hidden;
+  height: 0px;
+  width: 0px;
 }
 
 .dz-image-preview {
-display: none;
-visibility: hidden;
-height: 0px;
-width: 0px;
+  display: none;
+  visibility: hidden;
+  height: 0px;
+  width: 0px;
 }
 
 .procedure-box {
@@ -227,7 +224,7 @@ width: 0px;
   float: left;
   width: 80%;
 }
-.step-name-box{
+.step-name-box {
   padding: 1px;
 }
 
@@ -298,6 +295,7 @@ width: 0px;
   width: 30%;
   float: right;
 }
+
 .new-display {
   display: inline;
   width: 100%;
