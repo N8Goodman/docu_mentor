@@ -28,7 +28,14 @@ class LevelsController < AdminController
 
   def destroy
     @level = Level.find(params[:id])
+    @procedure = @level.procedure
     if @level.destroy!
+      @procedure.levels.each do |level|
+        if level.order > @level.order
+          level.order -= 1
+          level.save
+        end
+      end
       flash[:notice] = "#{@level.stage.stage_name} has been removed from stage!"
     else
       flash[:error] = @level.errors.full_messages.join", "

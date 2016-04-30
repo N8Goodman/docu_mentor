@@ -1,2 +1,14 @@
 <h1>Add a new Document:</h1>
-<%= render 'form' %>
+<div class="new-display">
+  <div class="doc-list">
+    <h3>Documents:</h3>
+    <% @documents.each do |doc| %>
+      <li>
+        <%=doc.document_name%>
+      </li>
+    <% end %>
+  </div>
+  <div class="form-box">
+    <%= render 'form' %>
+  </div>
+</div>

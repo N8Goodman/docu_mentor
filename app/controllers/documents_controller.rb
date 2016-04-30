@@ -8,6 +8,7 @@ class DocumentsController < AdminController
   end
 
   def new
+    @documents = Document.all
     @document = Document.new
   end
 
@@ -17,6 +18,7 @@ class DocumentsController < AdminController
       flash[:notice] = "Document created!"
       redirect_to document_path(@document)
     else
+      @documents = Document.all
       flash[:error] = @document.errors.full_messages.join", "
       render 'new'
     end

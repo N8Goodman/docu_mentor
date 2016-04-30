@@ -1,2 +1,14 @@
 <h1>Add a new Procedure:</h1>
-<%= render 'form' %>
+<div class="new-display">
+  <div class="doc-list">
+    <h3>Procedures:</h3>
+    <% @procedures.each do |pro| %>
+      <li>
+        <%=pro.procedure_name%>
+      </li>
+    <% end %>
+  </div>
+  <div class="form-box">
+    <%= render 'form' %>
+  </div>
+</div>

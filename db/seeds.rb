@@ -27,7 +27,7 @@ Document.create!(document_name: "Campus Housing Form", description: "The form ne
 Document.create!(document_name: "Meal Plan Form", description: "The form needed to register for on-campus dining")
 Document.create!(document_name: "Lease Contract", description: "The contract between lessee and lessor, stipulating the conditions of the deal")
 Document.create!(document_name: "Health Insurance Proof", description: "Document showing that customer has health insurance")
-Document.create!(document_name: "Reccommendation", description: "A written reccommendation from a prior employer or professor")
+Document.create!(document_name: "Recommendation", description: "A written reccommendation from a prior employer or professor")
 Document.create!(document_name: "References", description: "A list of contacts who can be reached for references")
 Document.create!(document_name: "Letter of Intent", description: "Letter indicating interest in becoming an employee of a company")
 Document.create!(document_name: "Signed Offer Letter", description: "A signed copy of the offer letter extended by the future employer")

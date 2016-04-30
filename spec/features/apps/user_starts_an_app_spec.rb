@@ -19,7 +19,7 @@ feature "user starts an app" do
   scenario "user sees list of apps" do
     sign_in(user1)
 
-    expect(page).to have_content "Your Applications:"
+    expect(page).to have_content "Applications:"
   end
 
   xscenario "when user starts an application a new app is generated with the corresponding procedure info" do

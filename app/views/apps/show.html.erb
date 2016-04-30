@@ -10,12 +10,14 @@
       <%= step.order %>. <%= step.stage.stage_name %>
       <div class="button" id="info-button" data-open="step-mod<%=step.id%>">i</div>
       <% if step.accepted? %>
-      (<%= step.stage.completion_status %>)
+        (<%= step.stage.completion_status %>)
+      <% else %>
+        (*Current*)
       <% end %>
     </div>
     <% step.uploads.each do |upload| %>
       <% if step.order == @app.active_stage %>
-        <div class="small-12 medium-4 large-3 column" id="square-outer">
+        <div class="small-12 medium-4 large-3 column" id="square-outer-active">
           <div class="upload-box">
             <%= form_for [@app, upload], :html => {:class => "dropzone"} do |f| %>
               <%= f.label :document_file, "#{upload.document.document_name}" %>
@@ -46,13 +48,9 @@
             <h4><%=upload.document.description%></h4>
             <p class="lead"><%=upload.document.completion_status%>: </p>
             <% if upload.accepted %>
-              <p>
-                Yes
-              </p>
+              <p>Yes</p>
             <% else %>
-              <p>
-                No
-              </p>
+              <p>No</p>
             <% end %>
             <p><%=upload.document_file%></p>
             <%=image_tag("#{upload.icon.icon_img}", height: 100, width: 100)%>
@@ -75,8 +73,13 @@
 
   <div class="reveal" id="step-mod<%=step.id%>" data-reveal>
     <h1><%=step.stage.stage_name%></h1>
-    <p class="lead"><%=step.stage.stage_name%></p>
-    <p><%=step.stage.description%></p>
+    <p class="lead"><%=step.stage.description%></p>
+    <p>Requirements for Completion:</p>
+    <% step.stage.documents.each do |doc| %>
+      <li>
+        <%= doc.document_name %>
+      </li>
+    <% end %>
     <button class="close-button" data-close aria-label="Close modal" type="button">
       <span aria-hidden="true">&times;</span>
     </button>

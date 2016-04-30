@@ -1,6 +1,5 @@
 class UploadsController < ApplicationController
   def update
-    binding.pry
     @upload = Upload.find(params[:id])
     @upload.update(document_file: params[:file].tempfile)
     if @upload.save
@@ -13,10 +12,6 @@ class UploadsController < ApplicationController
   end
 
   private
-
-  def upload_params
-    params.require(:upload).permit(:document_file)
-  end
 
   def check_upload(upload)
     if upload.document_file.nil?

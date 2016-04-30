@@ -2,6 +2,8 @@ class AppsController < ApplicationController
   def index
     @app = App.new
     @procedure_selects = Procedure.all
+    @completed_apps = App.where(user: current_user).where(completed: true)
+    @open_apps = App.where(user: current_user).where(completed: false)
   end
 
   def show

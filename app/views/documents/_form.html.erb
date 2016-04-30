@@ -1,21 +1,19 @@
-<div class="form-box">
-  <h1>Document:</h1>
-  <%= form_for @document do |f| %>
+<h1>Document:</h1>
+<%= form_for @document do |f| %>
 
-    <div class="required-field">
-      <%= f.label :document_name, "Document Name" %>
-      <%= f.text_field :document_name %>
-    </div>
+  <div class="required-field">
+    <%= f.label :document_name, "Document Name" %>
+    <%= f.text_field :document_name %>
+  </div>
 
-    <div class="non-required-field">
-      <%= f.label :description %>
-      <%= f.text_area :description %>
-    </div>
+  <div class="non-required-field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
 
-    <div class="non-required-field">
-      <%= f.label :completion_status, "Completion Title" %>
-      <%= f.text_field :completion_status %>
-    </div>
-    <%= f.submit "Submit Document", class: 'button' %>
-  <% end %>
-</div>
+  <div class="non-required-field">
+    <%= f.label :completion_status, "Completion Title" %>
+    <%= f.text_field :completion_status %>
+  </div>
+  <%= f.submit "Submit Document", class: 'button' %>
+<% end %>
