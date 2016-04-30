@@ -21,7 +21,7 @@
   $light-green: #5bb75b;
 
 .outer {
-  background-color: $base-green ;
+  background-color: $base-green;
   position: relative;
   display: inline-block;
   height: auto;
@@ -200,15 +200,15 @@
 .dz-image {
   display: none;
   visibility: hidden;
-  height: 0px;
-  width: 0px;
+  height: 0;
+  width: 0;
 }
 
 .dz-image-preview {
   display: none;
   visibility: hidden;
-  height: 0px;
-  width: 0px;
+  height: 0;
+  width: 0;
 }
 
 .procedure-box {
@@ -260,9 +260,10 @@
   border-radius: 5px;
 }
 
-.x-holder{
+.x-holder {
   float: right;
 }
+
 .complete-step-box {
   width: 50%;
   height: auto;
