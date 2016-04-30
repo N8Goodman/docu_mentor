@@ -22,6 +22,7 @@ class ProceduresController < AdminController
       flash[:notice] = "Procedure created!"
       redirect_to procedure_path(@procedure)
     else
+      @procedures = Procedure.all
       flash[:error] = @procedure.errors.full_messages.join", "
       render 'new'
     end

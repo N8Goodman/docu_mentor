@@ -18,6 +18,7 @@ class DocumentsController < AdminController
       flash[:notice] = "Document created!"
       redirect_to document_path(@document)
     else
+      @documents = Document.all
       flash[:error] = @document.errors.full_messages.join", "
       render 'new'
     end

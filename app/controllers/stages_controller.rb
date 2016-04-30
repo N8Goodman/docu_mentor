@@ -22,6 +22,7 @@ class StagesController < AdminController
       flash[:notice] = "Stage created!"
       redirect_to stage_path(@stage)
     else
+      @stages = Stage.all
       flash[:error] = @stage.errors.full_messages.join", "
       render 'new'
     end
