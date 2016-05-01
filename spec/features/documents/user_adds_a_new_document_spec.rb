@@ -57,7 +57,7 @@ feature "user adds a new document " do
     expect(page).to_not have_content "Description: An list of items for purchaser"
   end
 
-  xscenario 'user tries to add a document without a completion title' do
+  scenario 'user adds a document without a completion title' do
     sign_in(admin1)
     visit new_document_path
 
@@ -65,8 +65,8 @@ feature "user adds a new document " do
     fill_in "Description", with: "An list of items for purchase"
     click_on "Submit Document"
 
-    expect(page).to have_content "Completion status can't be blank"
-    expect(page).to_not have_content "Invoice"
-    expect(page).to_not have_content "Description: An list of items for purchaser"
+    expect(page).to have_content "Document created!"
+    expect(page).to have_content "Invoice"
+    expect(page).to have_content "When completed: Accepted"
   end
 end

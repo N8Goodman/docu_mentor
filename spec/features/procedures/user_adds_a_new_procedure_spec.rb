@@ -55,7 +55,7 @@ feature "user adds a new procedure " do
     expect(page).to_not have_content "Description: Application to secure a mortgage for purchasing a home"
   end
 
-  xscenario 'user tries to add a procedure without a completion title' do
+  scenario 'user adds a procedure without a completion title' do
     sign_in(admin1)
     visit new_procedure_path
 
@@ -63,8 +63,8 @@ feature "user adds a new procedure " do
     fill_in "Description", with: "Application to secure a mortgage for purchasing a home"
     click_on "Submit Procedure"
 
-    expect(page).to have_content "Completion status can't be blank"
-    expect(page).to_not have_content "Mortgage Loan"
-    expect(page).to_not have_content "Description: Application to secure a mortgage for purchasing a home"
+    expect(page).to have_content "Procedure created!"
+    expect(page).to have_content "Mortgage Loan"
+    expect(page).to have_content "When completed: Complete"
   end
 end

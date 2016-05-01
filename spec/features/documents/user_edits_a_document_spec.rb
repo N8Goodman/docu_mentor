@@ -75,7 +75,7 @@ feature "user edits a new document" do
     expect(page).to_not have_content "Description: A list of items for purchaser"
   end
 
-  xscenario 'user tries to edit a document without a completion title' do
+  scenario 'user edits a document without a completion title' do
     sign_in(admin1)
     visit '/documents'
 
@@ -85,15 +85,15 @@ feature "user edits a new document" do
 
     fill_in "Document Name", with: "Invoice"
     fill_in "Description", with: "A list of items for purchase"
-    fill_in "Completion Title", with: ""
     click_on "Submit Document"
 
-    expect(page).to have_content "Completion status can't be blank"
-    expect(page).to_not have_content "Document updated!"
-    expect(page).to_not have_content "Description: A list of items for purchase"
+    expect(page).to have_content "Document updated!"
+    expect(page).to have_content "Invoice"
+    expect(page).to have_content "A list of items for purchase"
+    expect(page).to have_content "When completed: Accepted"
   end
 
-  xscenario 'user tries to edit a document without any fields' do
+  scenario 'user tries to edit a document without any fields' do
     sign_in(admin1)
     visit '/documents'
 
@@ -106,7 +106,6 @@ feature "user edits a new document" do
     fill_in "Completion Title", with: ""
     click_on "Submit Document"
 
-    expect(page).to have_content "Completion status can't be blank"
     expect(page).to have_content "Document name can't be blank"
     expect(page).to_not have_content "Document updated!"
   end
