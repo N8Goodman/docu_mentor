@@ -6,16 +6,16 @@ user1 = User.create!(
   admin: true
 )
 
-Icon.create!(name: 'ppt', icon_img: '/assets/Document-Microsoft-PowerPoint-icon.png')
-Icon.create!(name: 'doc', icon_img: '/assets/Document-Microsoft-Word-icon.png')
-Icon.create!(name: 'excel', icon_img: '/assets/Document-Microsoft-Excel-icon.png')
-Icon.create!(name: 'pdf', icon_img: '/assets/Adobe-PDF-Document-icon.png')
-Icon.create!(name: 'empty', icon_img: '/assets/Document-Blank-icon.png')
-Icon.create!(name: 'unknown', icon_img: '/assets/Document-Help-icon.png')
-Icon.create!(name: 'zip', icon_img: '/assets/Folder-Compressed-icon.png')
-Icon.create!(name: 'rar', icon_img: '/assets/Folder-RAR-icon.png')
-Icon.create!(name: 'png', icon_img: '/assets/Image-PNG-icon.png')
-Icon.create!(name: 'jpeg', icon_img: '/assets/Image-JPEG-icon.png')
+Icon.create!(name: 'ppt', icon_img: 'Document-Microsoft-PowerPoint-icon.png')
+Icon.create!(name: 'doc', icon_img: 'Document-Microsoft-Word-icon.png')
+Icon.create!(name: 'excel', icon_img: 'Document-Microsoft-Excel-icon.png')
+Icon.create!(name: 'pdf', icon_img: 'Adobe-PDF-Document-icon.png')
+Icon.create!(name: 'empty', icon_img: 'Document-Blank-icon.png')
+Icon.create!(name: 'unknown', icon_img: 'Document-Help-icon.png')
+Icon.create!(name: 'zip', icon_img: 'Folder-Compressed-icon.png')
+Icon.create!(name: 'rar', icon_img: 'Folder-RAR-icon.png')
+Icon.create!(name: 'png', icon_img: 'Image-PNG-icon.png')
+Icon.create!(name: 'jpeg', icon_img: 'Image-JPEG-icon.png')
 
 
 Document.create!(document_name: "Driver's License", description: "A valid driver's license")
