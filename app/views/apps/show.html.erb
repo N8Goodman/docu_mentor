@@ -11,7 +11,7 @@
       <div class="button" id="info-button" data-open="step-mod<%=step.id%>">i</div>
       <% if step.accepted? %>
         (<%= step.stage.completion_status %>)
-      <% else %>
+      <% elsif step.order == @app.active_stage %>
         (*Current*)
       <% end %>
     </div>
