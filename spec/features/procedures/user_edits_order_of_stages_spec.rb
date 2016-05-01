@@ -16,52 +16,16 @@ feature "user sees a procedure's stages and documents" do
   let!(:level2) { Level.create(procedure: procedure1, stage: stage2, order: 2) }
   let!(:admin1) { FactoryGirl.create(:user, admin: true) }
 
-  xscenario "the order rank of a stage is displayed next to it's name" do
+  scenario "the order rank of a stage is displayed next to it's name" do
     sign_in(admin1)
     visit '/procedures'
 
     click_on procedure1.procedure_name
 
     expect(page).to have_content stage1.stage_name
-    expect(page).to have_content "Order: 1 #{stage1.stage_name}"
+    expect(page).to have_content "Step #1 #{stage1.stage_name}"
     expect(page).to have_content stage2.stage_name
-    expect(page).to have_content "Order: 2 #{stage2.stage_name}"
+    expect(page).to have_content "Step #2 #{stage2.stage_name}"
 
-  end
-
-  xscenario "user can re-order the stages of a procedure" do
-    sign_in(admin1)
-    visit '/procedures'
-
-    click_on procedure1.procedure_name
-
-    first('.stage-box').click_on('-1')
-
-    expect(page).to have_content "Order: 2 #{stage1.stage_name}"
-    expect(page).to have_content "Order: 1 #{stage2.stage_name}"
-  end
-
-  xscenario "user cannot move the first stage up" do
-    sign_in(admin1)
-    visit '/procedures'
-
-    click_on procedure1.procedure_name
-
-    first('.stage-box').click_on('+1')
-
-    expect(page).to_not have_content "Order: 0 #{stage1.stage_name}"
-    expect(page).to have_content "This is already the first stage!"
-  end
-
-  xscenario "user cannot move the last stage down" do
-    sign_in(admin1)
-    visit '/procedures'
-
-    click_on procedure1.procedure_name
-
-    find(".stage-list div.stage-box:nth-child(2) #down").click
-
-    expect(page).to_not have_content "Order: 3 #{stage2.stage_name}"
-    expect(page).to have_content "This is already the last stage!"
   end
 end

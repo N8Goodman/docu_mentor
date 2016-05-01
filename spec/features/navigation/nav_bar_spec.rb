@@ -81,29 +81,29 @@ feature "user can successfully navigates using the nav bar" do
 
     expect(page.current_path).to eq documents_path
   end
-  xscenario "user views root path from documents" do
+  scenario "user views root path from documents" do
     sign_in(admin1)
     visit documents_path
 
-    click_on "Home"
+    find("#logo").click
 
     expect(page.current_path).to eq root_path
   end
 
-  xscenario "user views root path from procedures" do
+  scenario "user views root path from procedures" do
     sign_in(admin1)
     visit procedures_path
 
-    click_on "Home"
+    find("#logo").click
 
     expect(page.current_path).to eq root_path
   end
 
-  xscenario "user views root path from stages" do
+  scenario "user views root path from stages" do
     sign_in(admin1)
     visit stages_path
 
-    click_on "Home"
+    find("#logo").click
 
     expect(page.current_path).to eq root_path
   end

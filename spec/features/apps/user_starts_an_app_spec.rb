@@ -22,7 +22,7 @@ feature "user starts an app" do
     expect(page).to have_content "Applications:"
   end
 
-  xscenario "when user starts an application a new app is generated with the corresponding procedure info" do
+  scenario "when user starts an application a new app is generated with the corresponding procedure info" do
     sign_in(user1)
 
     select procedure1.procedure_name, from: "Procedure"

@@ -75,7 +75,7 @@ feature "user edits a new stage " do
     expect(page).to_not have_content "Description: The first stage of the processr"
   end
 
-  xscenario 'user tries to edit a stage without a completion title' do
+  scenario 'user edits a stage without a completion title' do
     sign_in(admin1)
     visit '/stages'
 
@@ -85,15 +85,15 @@ feature "user edits a new stage " do
 
     fill_in "Stage Name", with: "Initial Application"
     fill_in "Description", with: "The first stage of the process"
-    fill_in "Completion Title", with: ""
     click_on "Submit Stage"
 
-    expect(page).to have_content "Completion status can't be blank"
-    expect(page).to_not have_content "Stage updated!"
-    expect(page).to_not have_content "Description: The first stage of the processr"
+    expect(page).to have_content "Stage updated!"
+    expect(page).to have_content "Initial Application"
+    expect(page).to have_content "When completed: Approved"
+    expect(page).to have_content "Description: The first stage of the process"
   end
 
-  xscenario 'user tries to edit a stage without any fields' do
+  scenario 'user tries to edit a stage without any fields' do
     sign_in(admin1)
     visit '/stages'
 
@@ -106,7 +106,6 @@ feature "user edits a new stage " do
     fill_in "Completion Title", with: ""
     click_on "Submit Stage"
 
-    expect(page).to have_content "Completion status can't be blank"
     expect(page).to have_content "Stage name can't be blank"
     expect(page).to_not have_content "Stage updated!"
   end
