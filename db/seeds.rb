@@ -1,8 +1,8 @@
 user1 = User.create!(
   user_name: "nate_admin",
   email: "nmg214@gmail.com",
-  password: "password",
-  password_confirmation: "password",
+  password: ENV["ADMIN_1_KEY"],
+  password_confirmation: ENV["ADMIN_1_KEY"],
   admin: true
 )
 
