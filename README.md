@@ -6,6 +6,11 @@
 
 ###Overview:
 
+If you would like to play around with the admin functionality, please sign in as the guest_admin:
+  email: admin@documentor.com
+  password: password
+  (Please be respectful!)
+
 An application designed to stream-line complex work-flows. (Think applying for a loan or applying to college.) Any process with multiple stages can be created.
 
 Administrators are able to create process templates and define the multiple(sequential) stages that are necessary for completion. They can then create the individual requirements for each stage to define what a user must do to complete a stage and move on with the process.

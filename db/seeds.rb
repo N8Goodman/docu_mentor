@@ -6,6 +6,14 @@ user1 = User.create!(
   admin: true
 )
 
+guest_user = User.create!(
+  user_name: "guest_admin",
+  email: "admin@documentor.com",
+  password: "password",
+  password_confirmation: "password",
+  admin: true
+)
+
 Icon.create!(name: 'ppt', icon_img: 'Document-Microsoft-PowerPoint-icon.png')
 Icon.create!(name: 'doc', icon_img: 'Document-Microsoft-Word-icon.png')
 Icon.create!(name: 'excel', icon_img: 'Document-Microsoft-Excel-icon.png')
